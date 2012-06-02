@@ -12,7 +12,7 @@ $recoms = array(
 
 foreach ( $recoms as $recom ) {
 	printf(
-		'<p><a href="%s" title="%s" class="no-link-style"><img src="%s" alt="%s" height="" width=""/></a></P>',
+		'<p><a href="%s" title="%s" class="no-link-style"><img src="%s" alt="%s" height="%s" width="%s"/></a></P>',
 		esc_url( $recom['link'] ),
 		esc_attr( $recom['title'] ),
 		esc_url( $recom['image'] ),
