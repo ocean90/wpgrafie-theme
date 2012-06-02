@@ -3,12 +3,12 @@
 
 // Fonts
 @font-face {
-	font-family: 'IcoMoon';
-	src: url('../fonts/icoMoon.eot');
-	src: url('../fonts/icoMoon.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/icoMoon.svg#IcoMoon') format('svg'),
-		url('../fonts/icoMoon.woff') format('woff'),
-		url('../fonts/icoMoon.ttf') format('truetype');
+	font-family: 'wpGrafie';
+	src: url('../fonts/wpGrafie.eot');
+	src: url('../fonts/wpGrafie.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/wpGrafie.svg#wpGrafie') format('svg'),
+		url('../fonts/wpGrafie.woff') format('woff'),
+		url('../fonts/wpGrafie.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -36,12 +36,12 @@ body, input, textarea {
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'IcoMoon';
+	font-family: 'wpGrafie';
 	font-style: normal;
 }
 
 .icon:before {
-	font-family: 'IcoMoon';
+	font-family: 'wpGrafie';
 	content: attr(data-icon);
 }
 
