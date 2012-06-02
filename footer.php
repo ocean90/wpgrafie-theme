@@ -14,14 +14,18 @@
 					<?php
 					get_search_form();
 					?>
-					<h2 class="section-title"><span>Monatsarchiv</span></h2>
-					<?php
-					get_template_part( 'content', 'all-terms' );
-					?>
 				</div>
 				<div class="span4">
-					3
+					<h2 class="section-title"><span>Sitemap</span></h2>
+					<?php
+					get_template_part( 'content', 'pages' );
+					?>
 				</div>
+			</div>
+			<div class="row">
+				<?php
+				get_template_part( 'content', 'imprint' );
+				?>
 			</div>
 		</div>
 	</footer>

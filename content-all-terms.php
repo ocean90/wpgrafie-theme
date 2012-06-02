@@ -6,7 +6,7 @@ $terms = get_terms(
 		get_object_taxonomies( 'post' )
 	),
 	array(
-		'number' => '30'
+		'number' => '50'
 	)
 ) ;
 shuffle($terms);

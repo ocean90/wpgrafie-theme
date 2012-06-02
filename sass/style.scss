@@ -53,11 +53,13 @@ code {
 ::selection {
 	background: $grey-color;
 	color: $white-color;
+	text-shadow: none;
 }
 
 ::-moz-selection {
 	background: $grey-color;
 	color: $white-color;
+	text-shadow: none;
 }
 
 /**
@@ -813,6 +815,7 @@ a.comment-reply-link:focus {
 	border: em(1px, 14px) solid lighten($blue-color, 20%);
 	@include transition( all 0.2s ease-out );
 	cursor: pointer;
+	text-shadow: none;
 }
 
 #commentform #submit:hover {
@@ -936,7 +939,7 @@ li.archive-month {
 	background: $grey-color;
 	color: $white-color;
 	@include box-shadow( inset 0 5px 10px -5px rgba(0, 0, 0, 0.8) );
-	padding: 40px 0;
+	padding: 40px 0 10px;
 }
 
 // http://www.webkrauts.de/2007/06/03/headline-elemente-mit-css-stylen/
@@ -952,10 +955,6 @@ li.archive-month {
 	padding: 0 10px;
 }
 
-#searchform {
-	margin-bottom: 10px;
-}
-
 #search-input {
 	font-size: em(14px);
 	background: lighten($blue-color, 80%);
@@ -969,6 +968,29 @@ li.archive-month {
 
 #search-input:focus {
 	@include box-shadow( inset 0 0 0 1px lighten($blue-color, 50%), 0 0 4px rgba(0, 0, 0, 0.25) );
+}
+
+#page-list {
+	font-size: 14px;
+}
+
+#page-list a {
+	color: lighten($grey-color, 50%);
+	text-shadow: 1px 1px 0 #111;
+}
+
+#page-list,
+#page-list ul {
+	list-style: square;
+	margin: em(10px,14px) 0 0 em(20px, 14px);
+}
+
+#page-list li {
+	margin-bottom: em(5px, 14px);
+}
+
+#imprint {
+	text-align: right;
 }
 
 // Responsive Styles

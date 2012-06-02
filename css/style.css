@@ -154,11 +154,13 @@ code {
 ::selection {
   background: #444444;
   color: #f2f3f2;
+  text-shadow: none;
 }
 
 ::-moz-selection {
   background: #444444;
   color: #f2f3f2;
+  text-shadow: none;
 }
 
 /**
@@ -1027,6 +1029,7 @@ a.comment-reply-link:focus {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   cursor: pointer;
+  text-shadow: none;
 }
 
 #commentform #submit:hover {
@@ -1159,7 +1162,7 @@ li.archive-month {
   -webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
-  padding: 40px 0;
+  padding: 40px 0 10px;
 }
 
 #footer .section-title {
@@ -1177,10 +1180,6 @@ li.archive-month {
 #footer .section-title span {
   background: #444444;
   padding: 0 10px;
-}
-
-#searchform {
-  margin-bottom: 10px;
 }
 
 #search-input {
@@ -1204,6 +1203,29 @@ li.archive-month {
   -webkit-box-shadow: inset 0 0 0 1px #7ca6db, 0 0 4px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: inset 0 0 0 1px #7ca6db, 0 0 4px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 0 0 1px #7ca6db, 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+#page-list {
+  font-size: 14px;
+}
+
+#page-list a {
+  color: #c4c4c4;
+  text-shadow: 1px 1px 0 #111;
+}
+
+#page-list,
+#page-list ul {
+  list-style: square;
+  margin: 0.714em 0 0 1.429em;
+}
+
+#page-list li {
+  margin-bottom: 0.357em;
+}
+
+#imprint {
+  text-align: right;
 }
 
 .banner-image,
