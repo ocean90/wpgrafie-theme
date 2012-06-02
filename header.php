@@ -1,4 +1,4 @@
-<?php ob_start( 'wpgrafie_Minify::compress_html' ); ?>
+<?php ob_start( 'DS_wpGrafie_Theme_Minify::compress_html' ); ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> itemscope itemtype="http://schema.org/Blog">
 <head>
