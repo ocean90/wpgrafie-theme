@@ -898,6 +898,7 @@ a.comment-reply-link {
   font-size: 0.75em;
   float: right;
   border: 0;
+  text-shadow: none;
 }
 
 a.comment-permalink {
@@ -1162,7 +1163,12 @@ li.archive-month {
   -webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.8);
-  padding: 40px 0 10px;
+  padding: 40px 0 0;
+  position: relative;
+}
+
+#footer > div {
+  background: transparent url("../img/asteroid.png") no-repeat right bottom;
 }
 
 #footer .section-title {
@@ -1225,7 +1231,38 @@ li.archive-month {
 }
 
 #imprint {
-  text-align: right;
+  margin-top: 20px;
+  color: #111;
+  font-size: 11px;
+  background: #b81b21;
+  display: inline-block;
+  float: right;
+  padding: 3px 6px;
+  position: relative;
+  z-index: 2;
+  -moz-box-shadow: -2px -2px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -2px -2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: -2px -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#imprint:after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  right: 0;
+  z-index: -1;
+  border: 7px solid #b81b21;
+  border-top: 7px solid transparent;
+  border-right: 7px solid transparent;
+  -moz-box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#imprint a {
+  color: #c4c4c4;
+  border-bottom: 0;
+  text-shadow: 1px 1px 0 #111;
 }
 
 .banner-image,
@@ -1271,6 +1308,14 @@ img {
     width: 100%;
     margin-top: 40px;
   }
+
+  #all-terms {
+    width: 65.95744680199999%;
+  }
+
+  #sitemap {
+    display: none;
+  }
 }
 @media (max-width: 600px) {
   #comments-section .span8 {
@@ -1284,6 +1329,15 @@ img {
   #logo {
     width: 400px;
     height: 70px;
+  }
+
+  #search {
+    width: 100%;
+    margin: 0;
+  }
+
+  #all-terms {
+    display: none;
   }
 }
 @media (max-width: 480px) {

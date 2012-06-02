@@ -702,6 +702,7 @@ a.comment-reply-link {
 	font-size: em(12px);
 	float: right;
 	border: 0;
+	text-shadow: none;
 }
 
 a.comment-permalink {
@@ -939,7 +940,12 @@ li.archive-month {
 	background: $grey-color;
 	color: $white-color;
 	@include box-shadow( inset 0 5px 10px -5px rgba(0, 0, 0, 0.8) );
-	padding: 40px 0 10px;
+	padding: 40px 0 0;
+	position: relative;
+}
+
+#footer > div {
+	background: transparent url( '../img/asteroid.png' ) no-repeat right bottom;
 }
 
 // http://www.webkrauts.de/2007/06/03/headline-elemente-mit-css-stylen/
@@ -990,7 +996,38 @@ li.archive-month {
 }
 
 #imprint {
-	text-align: right;
+	margin-top: 20px;
+	color: #111;
+	font-size: 11px;
+	background: #b81b21;
+	display: inline-block;
+	float: right;
+	padding: 3px 6px;
+	position: relative;
+	z-index: 2;
+	-moz-box-shadow: -2px -2px 0 rgba(0,0,0,0.1);
+	-webkit-box-shadow: -2px -2px 0 rgba(0,0,0,0.1);
+	box-shadow: -2px -2px 0 rgba(0,0,0,0.1);
+}
+
+#imprint:after {
+	content: '';
+	position: absolute;
+	top: -14px;
+	right: 0;
+	z-index: -1;
+	border: 7px solid #b81b21;
+	border-top: 7px solid transparent;
+	border-right: 7px solid transparent;
+	-moz-box-shadow: -2px 2px 0 rgba(0,0,0,0.1);
+	-webkit-box-shadow: -2px 2px 0 rgba(0,0,0,0.1);
+	box-shadow: -2px 2px 0 rgba(0,0,0,0.1);
+}
+
+#imprint a {
+	color: lighten($grey-color, 50%);
+	border-bottom: 0;
+	text-shadow: 1px 1px 0 #111;
 }
 
 // Responsive Styles

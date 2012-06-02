@@ -41,6 +41,14 @@ img {
 		width: 100%;
 		margin-top: 40px;
 	}
+
+	#all-terms {
+		width: 65.95744680199999%;
+	}
+
+	#sitemap {
+		display: none;
+	}
 }
 
 @media (max-width: 600px) {
@@ -55,6 +63,15 @@ img {
 	#logo {
 		width: 400px;
 		height: 70px;
+	}
+
+	#search {
+		width: 100%;
+		margin: 0;
+	}
+
+	#all-terms {
+		display: none;
 	}
 }
 
