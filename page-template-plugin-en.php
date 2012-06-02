@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Plugin
+ * Template Name: Plugin EN
  */
 
 get_header();
