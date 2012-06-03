@@ -13,7 +13,6 @@
 	font-style: normal;
 }
 
-
 // Reset Styles
 @import "helper/reset";
 
@@ -240,9 +239,16 @@ a:hover {
 	margin-top: 70px;
 }
 
-// http://www.webkrauts.de/2007/06/03/headline-elemente-mit-css-stylen/
 .section-title {
-	@include background(linear-gradient(transparent 48%, $grey-color 48%, $grey-color 52%, transparent 52%));
+	@include background(
+		linear-gradient(
+			top,
+			transparent 47%,
+			$grey-color 47%,
+			$grey-color 52%,
+			transparent 52%
+		)
+	);
 	text-align: center;
 	margin-bottom: 10px;
 }
@@ -295,6 +301,10 @@ a:hover {
 .list-posts a:focus + h2 a {
 	color: lighten($blue-color, 40%);
 	border-bottom-color: lighten($blue-color, 40%);
+}
+
+.list-posts .wp-post-image {
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
 }
 
 .list-posts .meta {
@@ -406,7 +416,7 @@ a:hover {
 }
 
 .big-image .vignette {
-	@include box-shadow( inset 0 0 50px -10px rgba(0,0,0,.8) );
+	@include box-shadow( inset 0 0 30px -10px rgba(0,0,0,.8) );
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -430,27 +440,51 @@ a:hover {
 	color: lighten($grey-color, 10%);
 }
 
+// Article images
 #article .alignleft {
 	display: inline;
 	float: left;
+	margin-right: 10px;
 }
 
 #article .alignright {
 	display: inline;
 	float: right;
+	margin-left: 10px;
 }
 
 #article .aligncenter {
 	clear: both;
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
-#article p {
-	margin-bottom: em(12px);
+#article img[class*="wp-image-"] {
+	background: #fff;
+	padding: 3px;
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	@include box-sizing( content-box );
 }
 
+#article .wp-caption {
+	padding: 3px;
+	background: #fff;
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+}
+
+#article .wp-caption img {
+	@include box-shadow( none );
+	padding: 0;
+}
+
+#article .wp-caption-text {
+	font-size: 12px;
+	color: lighten($grey-color, 10%);
+}
+
+// Article code blocks
 #article pre {
+	clear: both;
 	@include box-shadow( inset 1px 1px 5px rgba(0, 0, 0, 0.25), 0 1px 0 #fff );
 	background: #fefeef;
 	padding: em(3px,13px) em(6px,13px);
@@ -472,12 +506,13 @@ a:hover {
 	color: darken($grey-color, 10%);
 }
 
+// Article blockqoutes
 #article blockquote {
 	position: relative;
 	z-index: 2;
 	margin: em(25px) em(20px) em(25px) em(40px);
 	font-style: italic;
-	color: lighten($grey-color, 20%);
+	color: lighten($grey-color, 10%);
 }
 
 #article blockquote:before {
@@ -491,6 +526,7 @@ a:hover {
 	font-size: em(60px);
 }
 
+// Article lists
 #article ul {
 	list-style: square;
 	margin: em(25px) 0 em(25px) em(40px);
@@ -499,6 +535,45 @@ a:hover {
 #article ol {
 	list-style-type: decimal;
 	margin: em(25px) 0 em(25px) em(40px);
+}
+
+// Article Headlines
+#article h2,
+#article h3,
+#article h4,
+#article h5,
+#article h6 {
+	clear: both;
+}
+
+#article h3 {
+	font-size: 19px;
+	font-weight: 700;
+	border-bottom: 1px dashed lighten($grey-color, 10%);
+	margin: 20px 0;
+}
+
+#article h4 {
+	color: $blue-color;
+	font-weight: 700;
+	border-bottom: 1px dotted $blue-color;
+	margin: 15px 0;
+}
+
+#article h5 {
+	text-transform: uppercase;
+	margin: 10px 0;
+}
+
+#article h6 {
+	font-size: 14px;
+	font-style: italic;
+	margin: 10px 0;
+}
+
+// Article text
+#article p {
+	margin-bottom: em(12px);
 }
 
 // http://css-tricks.com/full-browser-width-bars/#comment-94090
@@ -949,7 +1024,7 @@ li.archive-month {
 
 // http://www.webkrauts.de/2007/06/03/headline-elemente-mit-css-stylen/
 #footer .section-title {
-	@include background(linear-gradient(transparent 48%, $white-color 48%, $white-color 52%, transparent 52%));
+	@include background(linear-gradient(transparent 47%, $white-color 47%, $white-color 52%, transparent 52%));
 	text-align: center;
 	margin-bottom: 10px;
 	text-shadow: 1px 1px 0 #111;
