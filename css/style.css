@@ -697,6 +697,7 @@ a:hover {
   font-size: 0.813em;
   margin: 1.923em 0;
   color: #2b2b2b;
+  max-height: 900px;
 }
 
 #article pre .code-comment {

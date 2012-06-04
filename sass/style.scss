@@ -492,6 +492,7 @@ a:hover {
 	font-size: em(13px);
 	margin: em(25px, 13px) 0;
 	color: darken($grey-color, 10%);
+	max-height: 900px;
 }
 
 #article pre .code-comment {

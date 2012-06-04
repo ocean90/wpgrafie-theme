@@ -1,6 +1,15 @@
 <?php
 class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 	/**
+	 * Admin script version.
+	 *
+	 * @since 2.0
+	 *
+	 * @var string
+	 */
+	private static $script_version = '0.1';
+
+	/**
 	 * Initialize class.
 	 *
 	 * @access public
@@ -285,7 +294,7 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 
 		check_ajax_referer( 'schnipsel_gist' );
 
-		$gist_url = "https://gist.github.com/{$gist_id}.json";
+		$gist_url = "https://api.github.com/gists/{$gist_id}";
 
 		$gist_body = wp_remote_retrieve_body( wp_remote_get( $gist_url ) );
 		$gist_body = json_decode( $gist_body );
@@ -305,23 +314,22 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 
 		update_post_meta( $post_id, '_gist_id', $gist_id );
 
-		$gist_files = $gist_body->files;
+		$gist_files = $gist_data = array();
 
-		preg_match_all( '/<pre>(.+?)<\/pre>/is', $gist_body->div, $gist_divs );
-		$gist_divs = $gist_divs[0];
-
-		foreach ( $gist_files as $i => $gist_file )
-			$gist_data[$gist_file] = '<div class="gist-syntax">' . $gist_divs[$i] . '</div>';
-
-
-		foreach ( $gist_data as $file => $gist_item ) {
-			$gist_new_meta = sprintf(
-				'<div class="cf"><p class="gist-meta"><a href="%s">RAW</a> · <a class="gist-download" href="%s">Download</a> · <a href="%s">Gist@GitHub</a></p></div>',
-				esc_url( "https://gist.github.com/raw/{$gist_id}/{$file}" ),
-				esc_url( "https://gist.github.com/gists/{$gist_id}/download"),
-				esc_url( "https://gist.github.com/{$gist_id}")
+		foreach ( $gist_body->files as $file ) {
+			$gist_files[] = $file->filename;
+			$gist_data[$file->filename] = sprintf(
+				'<div class="gist-syntax" id="gist-%s">
+				<div class="meta">
+				<span class="type">%s</span><a href="%s" target="_blank" rel="nofollow">RAW</a>
+				</div>
+				<pre>%s</pre>
+				</div>',
+				$file->filename,
+				$file->language,
+				esc_url( $file->raw_url ),
+				esc_html( $file->content )
 			);
-			$gist_data[$file] .= $gist_new_meta;
 		}
 
 		update_post_meta( $post_id, '_gist_data', $gist_data );
@@ -338,8 +346,22 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		if ( 'schnipsel' != $current_screen->id )
 			return;
 
-		wp_register_script( self::$themeslug . '_jqueryadmin', get_bloginfo( 'template_url' ) . "/js/jquery.admin.js", array( 'jquery' ), 0.1, true );
-		wp_enqueue_script( self::$themeslug . '_jqueryadmin' );
+		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
+
+		wp_register_script(
+			self::$themeslug . '-admin' ,
+			sprintf(
+				'%s/js/jquery.%s.admin%s.js',
+				get_stylesheet_directory_uri(),
+				self::$themeslug,
+				$dev
+			),
+			array( 'jquery' ),
+			self::$script_version,
+			true
+		);
+
+		wp_enqueue_script( self::$themeslug . '-admin' );
 	}
 
 	public function convert_to_gist( $content ) {
