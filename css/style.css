@@ -440,6 +440,8 @@ a:hover {
 
 #article .section-title {
   border-bottom: 0;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .section-title span {
