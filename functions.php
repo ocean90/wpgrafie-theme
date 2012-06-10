@@ -68,9 +68,9 @@ class DS_wpGrafie_Theme {
 
 		spl_autoload_register( array( __CLASS__, 'autoload' ) );
 
-		/*add_action( 'after_setup_theme', array( __CLASS__, 'init_hooks' ), 3 );
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_hooks' ), 3 );
 
-		add_action( 'after_setup_theme', array( __CLASS__, 'init_post_formats' ), 5 );
+		/*add_action( 'after_setup_theme', array( __CLASS__, 'init_post_formats' ), 5 );
 		add_action( 'after_setup_theme', array( 'wpgrafie_Widgets', 'init' ), 12 );
 
 
@@ -88,6 +88,67 @@ class DS_wpGrafie_Theme {
 		add_action( 'init', array( 'DS_wpGrafie_WP_Planet_Feed', 'init') );
 
 		add_action( 'pre_get_posts', array( __CLASS__, 'filter_queries' ) );
+	}
+
+	/**
+	 * Initialize actions and filters.
+	 *
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	public static function init_hooks() {
+	#	add_filter( 'pre_get_posts',			array( __CLASS__, 'exclude_pages_from_search' )						);
+	#	add_filter( 'pre_get_posts',			array( __CLASS__, 'include_post_type' )								);
+		#add_filter( 'post_class',				array( __CLASS__, 'add_custom_post_class' )							);
+	#	add_filter( 'comment_class',			array( __CLASS__, 'add_custom_comment_class' )						);
+	#	add_filter( 'body_class',				array( __CLASS__, 'add_custom_body_class' )							);
+	#	add_filter( 'get_comment_author_link', 	array( __CLASS__, 'comment_author_link_remove_nofollow' )			);
+	#	add_filter( 'get_comments_number', 		array( __CLASS__, 'get_comments_number_only_comments' ),	10, 2	);
+		add_filter( 'user_contactmethods',		array( __CLASS__, 'user_contactmethods' )							);
+	#	add_filter( 'the_content_feed',			array( __CLASS__, 'related_posts_in_feed' )							);
+		add_filter( 'img_caption_shortcode',	array( __CLASS__, 'img_caption_shortcode' ),				10, 3	);
+		add_filter( 'image_send_to_editor',		array( __CLASS__, 'image_send_to_editor' ),					10, 8	);
+
+		/* Clean up */
+		remove_action( 'wp_head',	'feed_links',						2		);
+		remove_action( 'wp_head',	'feed_links_extra',					3		);
+		remove_action( 'wp_head',	'rsd_link'									);
+		remove_action( 'wp_head',	'wlwmanifest_link'							);
+		remove_action( 'wp_head',	'index_rel_link'							);
+		remove_action( 'wp_head',	'parent_post_rel_link',				10, 0	);
+		remove_action( 'wp_head',	'start_post_rel_link',				10, 0	);
+		remove_action( 'wp_head',	'adjacent_posts_rel_link_wp_head',	10, 0	);
+		remove_action( 'wp_head',	'locale_stylesheet'							);
+		remove_action( 'wp_head',	'noindex',							1		);
+		remove_action( 'wp_head',	'wp_generator'								);
+		remove_action( 'wp_head',	'wp_shortlink_wp_head',				10, 0	);
+		remove_action( 'wp_head',	'rel_canonical'								);
+
+
+		if ( ! isset( $GLOBALS['content_width'] ) )
+			$GLOBALS['content_width'] = 714;
+	}
+
+	public function image_send_to_editor( $html, $id, $caption, $title, $align, $url, $size, $alt ) {
+		return '<figure>' . $html . '</figure>';
+	}
+
+	public function img_caption_shortcode( $null, $attr, $content ) {
+		extract( shortcode_atts( array(
+			'id'    => '',
+			'align'    => 'alignnone',
+			'width'    => '',
+			'caption' => ''
+		), $attr ) );
+
+		if ( 1 > (int) $width || empty($caption) )
+			return $content;
+
+		if ( $id )
+			$id = 'id="' . esc_attr( $id ) . '" ';
+
+		return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 	}
 
 	/**
@@ -265,6 +326,7 @@ class DS_wpGrafie_Theme {
 		add_image_size( 'article-image-middle', 635, 127, true );
 		add_image_size( 'article-image-small', 310, 62, true );
 	}
+
 	/**
 	 * Paging bar.
 	 * Thx Sergej Müller.
@@ -323,6 +385,43 @@ class DS_wpGrafie_Theme {
 		if ( true == $query->get( 'suppress_filters' ) )
 			return;
 
+	}
+
+	public static function user_contactmethods( $user_contactmethods ) {
+		$user_contactmethods['googleplus']	= 'Google+';
+		$user_contactmethods['twitter']		= 'Twitter';
+		$user_contactmethods['facebook']	= 'Facebook';
+
+		unset( $user_contactmethods['yim'] );
+		unset( $user_contactmethods['jabber'] );
+		unset( $user_contactmethods['aim'] );
+
+		return $user_contactmethods;
+	}
+
+	public static function _fix_and( $l ) {
+		$l['between_last_two'] = __(' and ');
+		return $l;
+	}
+
+	public static function author_box() {
+		add_filter( 'wp_sprintf_l', array( __CLASS__, '_fix_and' ) );
+
+		$avatar		= get_avatar( get_the_author_meta( 'ID' ) , 72 );
+		$name		= get_the_author_meta( 'display_name' );
+		$desc		= get_the_author_meta( 'user_description' );
+		$social		= array();
+		get_the_author_meta( 'googleplus' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'googleplus' ) ) . '">Google+</a>' : '';
+		get_the_author_meta( 'twitter' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'twitter' ) ) . '">Twitter</a>' : '';
+		get_the_author_meta( 'facebook' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'facebook' ) ) . '">Facebook</a>' : '';
+		$website	= get_the_author_meta( 'user_url' );
+		?>
+		<div class="author-box">
+			<?php echo $avatar; ?>
+			<h3><?php printf( 'Der Autor: %s', $name ); ?></h3>
+			<p><?php printf( '%s Mehr News und Infos gibt es auch bei %s.', $desc, wp_sprintf( '%l', $social )  ); ?></p>
+		</div>
+		<?php
 	}
 }
 

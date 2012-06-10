@@ -20,7 +20,9 @@ while (have_posts()) :
 				<?php the_content(); ?>
 			</div>
 			<aside class="span3" id="article-sidebar">
-				Autor
+				<?php
+				get_template_part( 'sidebar', 'author' );
+				?>
 			</aside>
 		</div>
 		<footer id="article-footer">
