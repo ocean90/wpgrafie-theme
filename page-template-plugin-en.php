@@ -34,7 +34,9 @@ while (have_posts()) :
 				if( ! empty( $plugin_data ) ) :
 				?>
 				<div class="plugin-download" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-					<a itemprop="price" content="0.00" href="<?php echo esc_url( $plugin_data->download->link ); ?>">Download<br/><small>Version <?php echo $plugin_data->version; ?></small></a>
+					<a href="<?php echo esc_url( $plugin_data->download->link ); ?>">Download<br/><small>Version <?php echo $plugin_data->version; ?></small></a>
+					<meta itemprop="price" content="0.00" />
+					<meta itemprop="priceCurrency" content="EUR" />
 				</div>
 				<div class="plugin-info">
 					<div id="plugin-downloads" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="row">
