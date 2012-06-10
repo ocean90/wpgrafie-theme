@@ -387,6 +387,10 @@ a:hover {
 	border-bottom-color: lighten($blue-color, 40%);
 }
 
+#my-plugins img {
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+}
+
 /**
  * Index: Recommendations
  */

@@ -584,6 +584,12 @@ a:hover {
   border-bottom-color: #548bd0;
 }
 
+#my-plugins img {
+  -webkit-box-shadow: 0 1px 3px #aaaaaa;
+  -moz-box-shadow: 0 1px 3px #aaaaaa;
+  box-shadow: 0 1px 3px #aaaaaa;
+}
+
 /**
  * Index: Recommendations
  */
