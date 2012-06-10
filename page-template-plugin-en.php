@@ -11,14 +11,14 @@ $plugin_data = $plugin->plugin_data;
 while (have_posts()) :
 	the_post();
 ?>
-	<article id="article" <?php post_class(); ?>>
+	<article id="article" <?php post_class(); ?> itemscope itemtype="http://schema.org/Product">
 		<header id="article-header">
 			<div class="row big-image" id="article-image">
 				<div class="vignette"></div>
 				<?php the_post_thumbnail( 'article-image-big' ); ?>
 			</div>
 			<div class="row" id="article-title">
-				<h2><?php the_title(); ?></h2>
+				<h2 itemprop="name"><?php the_title(); ?></h2>
 			</div>
 		</header>
 		<div class="row">
@@ -39,18 +39,18 @@ while (have_posts()) :
 				<div class="plugin-info">
 					<div id="plugin-downloads" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="row">
 						<h3 class="section-title"><span>Downloads</span></h3>
-						<p>Das Plugin wurde schon <?php echo $plugin_data->download->count; ?> mal heruntergeladen.<br/>
-							Dabei bekam es <?php echo $plugin_data->rating->feedback; ?> positives Feedback, basierend auf <?php echo $plugin_data->rating->count; ?> Wertungen im Plugin-Repo von <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
+						<p>The plugin is <?php echo $plugin_data->download->count; ?> downloaded.<br/>
+							It got <?php echo $plugin_data->rating->feedback; ?> positive feedback, based on <?php echo $plugin_data->rating->count; ?> ratings from the plugin repo on <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
 						<meta itemprop="ratingValue" content="<?php echo esc_attr( $plugin_data->rating->rounded ); ?>" />
 						<meta itemprop="ratingCount" content="<?php echo esc_attr( $plugin_data->rating->count ); ?>" />
 					</div>
 					<div id="plugin-compatibility" class="row">
-						<h3 class="section-title"><span>WordPress Unterstützung</span></h3>
-						<p>Das Plugin benötigt mindestens WordPress <?php echo $plugin_data->compat->requires; ?> und wurde bis WordPress <?php echo $plugin_data->compat->tested; ?> getestet.</p>
+						<h3 class="section-title"><span>WordPress Support</span></h3>
+						<p>The plugin requires WordPress <?php echo $plugin_data->compat->requires; ?> and is compatible up to WordPress <?php echo $plugin_data->compat->tested; ?> getestet.</p>
 					</div>
 					<div id="plugin-changelog" class="row">
-						<h3 class="section-title"><span>Änderungen</span></h3>
-						<p>Zuletzt aktualisiert am <?php echo $plugin_data->log->last_update; ?>.</p>
+						<h3 class="section-title"><span>Changelog</span></h3>
+						<p>Last update on <?php echo $plugin_data->log->last_update; ?>.</p>
 						<?php echo $plugin_data->log->changes; ?>
 					</div>
 				</div>

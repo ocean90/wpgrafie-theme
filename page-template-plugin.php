@@ -11,14 +11,14 @@ $plugin_data = $plugin->plugin_data;
 while (have_posts()) :
 	the_post();
 ?>
-	<article id="article" <?php post_class(); ?>>
+	<article id="article" <?php post_class(); ?> itemscope itemtype="http://schema.org/Product">
 		<header id="article-header">
 			<div class="row big-image" id="article-image">
 				<div class="vignette"></div>
 				<?php the_post_thumbnail( 'article-image-big' ); ?>
 			</div>
 			<div class="row" id="article-title">
-				<h2><?php the_title(); ?></h2>
+				<h2 itemprop="name"><?php the_title(); ?></h2>
 			</div>
 		</header>
 		<div class="row">
@@ -40,7 +40,7 @@ while (have_posts()) :
 					<div id="plugin-downloads" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="row">
 						<h3 class="section-title"><span>Downloads</span></h3>
 						<p>Das Plugin wurde schon <?php echo $plugin_data->download->count; ?> mal heruntergeladen.<br/>
-							Dabei bekam es <?php echo $plugin_data->rating->feedback; ?> positives Feedback, basierend auf <?php echo $plugin_data->rating->count; ?> Wertungen im Plugin-Repo von <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
+							Dabei bekam es <?php echo $plugin_data->rating->feedback; ?> positives Feedback, basierend auf <?php echo $plugin_data->rating->count; ?> Wertungen im Plugin Verzeichnis von <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
 						<meta itemprop="ratingValue" content="<?php echo esc_attr( $plugin_data->rating->rounded ); ?>" />
 						<meta itemprop="ratingCount" content="<?php echo esc_attr( $plugin_data->rating->count ); ?>" />
 					</div>
