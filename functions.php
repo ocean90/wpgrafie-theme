@@ -87,7 +87,7 @@ class DS_wpGrafie_Theme {
 
 		add_action( 'init', array( 'DS_wpGrafie_WP_Planet_Feed', 'init') );
 
-		add_action( 'pre_get_posts', array( __CLASS__, 'filter_queries' ) );
+		#add_action( 'pre_get_posts', array( __CLASS__, 'filter_queries' ) );
 	}
 
 	/**
@@ -293,7 +293,7 @@ class DS_wpGrafie_Theme {
 			return;
 
 		$templates = array(
-			'before' => '<nav id="breadcrumb-navigation" class="width-960"><ul data-icon="l" class="icon">',
+			'before' => '<nav id="breadcrumb-navigation" class="width-960"><ul data-icon="/" class="icon">',
 			'after' => '</ul></nav>',
 			'standard' => '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">%s<span class="sep">&nbsp;/&nbsp;</span></li>',
 			'current' => '<li class="current">%s</li>',
@@ -399,27 +399,31 @@ class DS_wpGrafie_Theme {
 		return $user_contactmethods;
 	}
 
-	public static function _fix_and( $l ) {
-		$l['between_last_two'] = __(' and ');
-		return $l;
-	}
 
 	public static function author_box() {
-		add_filter( 'wp_sprintf_l', array( __CLASS__, '_fix_and' ) );
 
-		$avatar		= get_avatar( get_the_author_meta( 'ID' ) , 72 );
+		$avatar		= get_avatar( get_the_author_meta( 'ID' ) , 50 );
 		$name		= get_the_author_meta( 'display_name' );
 		$desc		= get_the_author_meta( 'user_description' );
 		$social		= array();
-		get_the_author_meta( 'googleplus' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'googleplus' ) ) . '">Google+</a>' : '';
-		get_the_author_meta( 'twitter' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'twitter' ) ) . '">Twitter</a>' : '';
-		get_the_author_meta( 'facebook' ) ? $social[] = '<a href="' . esc_url( get_the_author_meta( 'facebook' ) ) . '">Facebook</a>' : '';
+		get_the_author_meta( 'googleplus' ) ? $social[] = '<a data-icon="g" class="icon g no-link-style" href="' . esc_url( get_the_author_meta( 'googleplus' ) ) . '">Google+</a>' : '';
+		get_the_author_meta( 'twitter' ) ? $social[] = '<a data-icon="t" class="icon t no-link-style" href="' . esc_url( get_the_author_meta( 'twitter' ) ) . '">Twitter</a>' : '';
+		get_the_author_meta( 'facebook' ) ? $social[] = '<a data-icon="f" class="icon f no-link-style" href="' . esc_url( get_the_author_meta( 'facebook' ) ) . '">Facebook</a>' : '';
 		$website	= get_the_author_meta( 'user_url' );
 		?>
 		<div class="author-box">
 			<?php echo $avatar; ?>
-			<h3><?php printf( 'Der Autor: %s', $name ); ?></h3>
-			<p><?php printf( '%s Mehr News und Infos gibt es auch bei %s.', $desc, wp_sprintf( '%l', $social )  ); ?></p>
+			<h3><?php echo $name; ?></h3>
+			<p><?php echo $desc; ?></p>
+			<?php
+			if ( ! empty( $social ) ) {
+				$social_list = '';
+				foreach ( $social as $i => $link )
+					$social_list .= sprintf( '<li>%s</li>', $link );
+
+				printf( '<ul class="social-list">%s</ul>', $social_list );
+			}
+			?>
 		</div>
 		<?php
 	}

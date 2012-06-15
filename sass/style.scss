@@ -524,17 +524,8 @@ a:hover {
 	margin: em(25px) em(20px) em(25px) em(40px);
 	font-style: italic;
 	color: lighten($grey-color, 10%);
-}
-
-#article blockquote:before {
-	@extend .icon:before;
-	z-index: -1;
-	position: absolute;
-	top: em(-14px, 60px);
-	left: em(-50px, 60px);
-	content: 'q';
-	color: #feb6b6;
-	font-size: em(60px);
+	border-left: 5px solid lighten($grey-color, 10%);
+	padding-left: 10px;
 }
 
 // Article lists
@@ -585,6 +576,57 @@ a:hover {
 // Article text
 #article p {
 	margin-bottom: em(12px);
+}
+
+// Article Author
+#author-box img {
+	float: left;
+	background: #fff;
+	padding: 3px;
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	@include box-sizing( content-box );
+}
+
+#author-box h3 {
+	clear: none;
+	float: left;
+	font-size: 14px;
+	border-bottom: 0;
+	margin: 25px 0 0 5px;
+}
+
+#author-box p {
+	padding-top: 10px;
+	clear: both;
+	font-style: italic;
+	font-size: 14px;
+}
+
+#author-box .social-list {
+	margin: 0 0 0 5px;
+	list-style: none;
+	font-size: 12px;
+}
+
+#author-box .social-list li {
+	display: inline-block;
+	padding-right: 7px;
+}
+
+.social-list .icon:before {
+	padding-right: 5px;
+}
+
+.social-list .g:before {
+	color: #d2432a;
+}
+
+.social-list .t:before {
+	color: #49a4d3;
+}
+
+.social-list .f:before {
+	color: #667caa;
 }
 
 // http://css-tricks.com/full-browser-width-bars/#comment-94090
