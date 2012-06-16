@@ -629,6 +629,37 @@ a:hover {
 	color: #667caa;
 }
 
+// Related article
+#article #related-title {
+	border-bottom: 0;
+	font-size: em(20px);
+	margin: em(30px, 20px) 0 em(25px,20px);
+}
+
+#article #related-title:before {
+	padding-right: 5px;
+}
+
+#related-posts-row .span6 div {
+	margin: 0 auto;
+	max-width: 310px;
+}
+
+#related-posts-row a span {
+	color: lighten($blue-color, 40%);
+	border-bottom: 1px solid lighten($grey-color, 50%);
+	@include transition( all 0.2s ease-out );
+}
+
+#related-posts-row .span6:hover span,
+#related-posts-row a:focus span {
+	border-bottom-color: lighten($blue-color, 40%);
+}
+
+#related-posts-row img {
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+}
+
 // http://css-tricks.com/full-browser-width-bars/#comment-94090
 .wide-break {
 	margin: 0 0 0 -2000px;

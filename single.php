@@ -8,7 +8,7 @@ while (have_posts()) :
 		<header id="article-header">
 			<div class="row big-image" id="article-image">
 				<div class="vignette"></div>
-				<?php the_post_thumbnail( 'article-image-big' ); ?>
+				<?php echo get_the_post_thumbnail( null, 'article-image-big', array( 'alt' => '', 'title' => '' ) ); ?>
 			</div>
 			<div class="row" id="article-title">
 				<h2><?php the_title(); ?></h2>
@@ -28,6 +28,7 @@ while (have_posts()) :
 		<footer id="article-footer">
 			<?php
 			get_template_part( 'social' );
+			get_template_part( 'related' );
 			?>
 		</footer>
 	</article>

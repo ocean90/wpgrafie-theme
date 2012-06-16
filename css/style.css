@@ -835,6 +835,42 @@ a:hover {
   color: #667caa;
 }
 
+#article #related-title {
+  border-bottom: 0;
+  font-size: 1.25em;
+  margin: 1.5em 0 1.25em;
+}
+
+#article #related-title:before {
+  padding-right: 5px;
+}
+
+#related-posts-row .span6 div {
+  margin: 0 auto;
+  max-width: 310px;
+}
+
+#related-posts-row a span {
+  color: #548bd0;
+  border-bottom: 1px solid #c4c4c4;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+#related-posts-row .span6:hover span,
+#related-posts-row a:focus span {
+  border-bottom-color: #548bd0;
+}
+
+#related-posts-row img {
+  -webkit-box-shadow: 0 1px 3px #aaaaaa;
+  -moz-box-shadow: 0 1px 3px #aaaaaa;
+  box-shadow: 0 1px 3px #aaaaaa;
+}
+
 .wide-break {
   margin: 0 0 0 -2000px;
   padding: 0 0 0 2000px;
