@@ -25,7 +25,7 @@ while ( have_posts() ) :
 		<footer class="meta">
 			<span class="date">— <?php the_modified_date(); ?></span>
 			<a href="<?php the_permalink(); ?>" class="more">Weiterlesen</a>
-		<footer>
+		</footer>
 	</article>
 	<?php
 	else :
@@ -47,7 +47,7 @@ while ( have_posts() ) :
 		<footer class="meta">
 			<span class="date">— <?php echo the_modified_date(); ?></span>
 			<a href="<?php the_permalink(); ?>" class="more">Weiterlesen</a>
-		<footer>
+		</footer>
 	</article>
 	<?php
 		if ( $j % 2 == 0 ) echo '</div>';

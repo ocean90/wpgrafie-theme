@@ -8,7 +8,7 @@ get_header();
 		<p class="third">Mein Name ist Dominik, ich liebe <span class="word">Word</span><span class="press">Press</span><br/> und teile gerne mein Wissen darüber.</p>
 	</div>
 	<div class="span6">
-		<img width="460" height="345" src="<?php echo get_stylesheet_directory_uri() ?>/img/about.png" />
+		<img width="460" height="345" src="<?php echo get_stylesheet_directory_uri() ?>/img/about.png" alt="" />
 	</div>
 </div>
 

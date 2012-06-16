@@ -17,7 +17,7 @@ while ( have_posts() ) :
 		<footer class="meta">
 			<span class="date">— <?php the_modified_date(); ?></span>
 			<a href="<?php the_permalink(); ?>" class="more">Weiterlesen</a>
-		<footer>
+		</footer>
 	</article>
 <?php
 endwhile;
