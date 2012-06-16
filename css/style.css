@@ -1264,6 +1264,16 @@ li.archive-month {
   margin-bottom: 20px;
 }
 
+#plugins-page img {
+  -webkit-box-shadow: 0 1px 3px #aaaaaa;
+  -moz-box-shadow: 0 1px 3px #aaaaaa;
+  box-shadow: 0 1px 3px #aaaaaa;
+}
+
+.plugin:hover h3 a {
+  border-bottom-color: #548bd0;
+}
+
 /**
  * Plugin Page Template
  */

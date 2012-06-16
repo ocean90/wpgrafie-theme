@@ -19,7 +19,7 @@ while (have_posts()) :
 	?>
 	<div class="row plugin">
 		<div class="span8">
-			<a href="<?php the_permalink(); ?>" class="no-link-style"><?php the_post_thumbnail( 'article-image-middle' ); ?></a>
+			<a href="<?php the_permalink(); ?>" class="no-link-style"><?php echo get_the_post_thumbnail( null, 'article-image-middle', array( 'alt' => '', 'title' => '' ) ); ?></a>
 		</div>
 		<div class="span4">
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>

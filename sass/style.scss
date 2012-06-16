@@ -1040,6 +1040,14 @@ li.archive-month {
 	margin-bottom: 20px;
 }
 
+#plugins-page img {
+	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+}
+
+.plugin:hover h3 a {
+	border-bottom-color: lighten($blue-color, 40%);
+}
+
 /**
  * Plugin Page Template
  */
