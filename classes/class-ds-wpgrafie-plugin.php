@@ -76,6 +76,7 @@ class DS_wpGrafie_Plugin extends DS_wpGrafie_Theme {
 			$date = explode( '-', $date );
 			$date = "$date[2].$date[1].$date[0]";
 		}
+		$data->log              = new stdClass();
 		$data->log->last_update = $date;
 		$data->log->changes     = $this->plugin_raw_data->sections['changelog'];
 
