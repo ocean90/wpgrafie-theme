@@ -913,6 +913,10 @@ a:hover {
 /**
  * Share box
  */
+#social-row {
+  margin-top: 20px;
+}
+
 .share-box {
   margin: 0 10px;
   min-height: 100px;
