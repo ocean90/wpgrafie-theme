@@ -37,7 +37,7 @@ class DS_wpGrafie_Theme {
 	 *
 	 * @var string
 	 */
-	private static $style_version = '0.2';
+	private static $style_version = '0.3';
 
 	/**
 	 * Additional classes which will be autoloaded.
