@@ -57,14 +57,16 @@ class DS_wpGrafie_Plugin extends DS_wpGrafie_Theme {
 	}
 
 	private function get_nice_plugin_data() {
-		$data = new stdClass();
-
+		$data                   = new stdClass();
 		$data->version          = $this->plugin_raw_data->version;
 		$data->slug             = $this->plugin_slug;
+		$data->download         = new stdClass();
 		$data->download->link   = $this->plugin_raw_data->download_link;
 		$data->download->count  = $this->is_english() ? number_format( $this->plugin_raw_data->downloaded ) : number_format( $this->plugin_raw_data->downloaded, 0, ',', '.' ) ;
+		$data->compat           = new stdClass();
 		$data->compat->tested   = $this->plugin_raw_data->tested;
 		$data->compat->requires = $this->plugin_raw_data->requires;
+		$data->rating           = new stdClass();
 		$data->rating->count    = $this->plugin_raw_data->num_ratings;
 		$data->rating->feedback = $this->is_english() ? $this->plugin_raw_data->rating . '%' : str_replace( '.', ',', $this->plugin_raw_data->rating ) . '%';
 		$data->rating->rounded  = round( $this->plugin_raw_data->rating * 0.05, 2 );
