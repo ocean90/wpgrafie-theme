@@ -614,7 +614,7 @@ a:hover {
  * Article
  */
 #article-header {
-  margin: 0.313em 0 0.938em;
+  margin: 0.313em 0 1.25em;
 }
 
 .big-image {
@@ -636,10 +636,10 @@ a:hover {
 #article-header #article-title h2 {
   font-weight: 700;
   font-size: 1.875em;
+  margin-top: 10px;
 }
 
 #article-header #article-title {
-  padding-bottom: 0.313em;
   border-bottom: 0.125em solid #444444;
 }
 
