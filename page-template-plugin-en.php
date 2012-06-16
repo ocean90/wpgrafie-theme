@@ -41,7 +41,7 @@ while (have_posts()) :
 				<div class="plugin-info">
 					<div id="plugin-downloads" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="row">
 						<h3 class="section-title"><span>Downloads</span></h3>
-						<p>The plugin is <?php echo $plugin_data->download->count; ?> downloaded.<br/>
+						<p>The plugin has been downloaded <?php echo $plugin_data->download->count; ?> times.<br/>
 							It got <?php echo $plugin_data->rating->feedback; ?> positive feedback, based on <?php echo $plugin_data->rating->count; ?> ratings from the plugin repo on <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
 						<meta itemprop="ratingValue" content="<?php echo esc_attr( $plugin_data->rating->rounded ); ?>" />
 						<meta itemprop="ratingCount" content="<?php echo esc_attr( $plugin_data->rating->count ); ?>" />
