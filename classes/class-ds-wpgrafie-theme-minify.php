@@ -106,7 +106,8 @@ class DS_wpGrafie_Theme_Minify extends DS_wpGrafie_Theme {
 				'/\>(\s)+/s',
 				'/(\s)+\</s',
 				'/\>\s+\</s',
-			//	'/<script/',
+				'/<script/',
+				"/ type=('|\")text\/javascript('|\")/",
 				'/http:\/\/wpgrafie.de/'
 			),
 			array(
@@ -117,7 +118,8 @@ class DS_wpGrafie_Theme_Minify extends DS_wpGrafie_Theme {
 				'>\\1',
 				'\\1<',
 				'><',
-			//	'<script defer',
+				'<script defer="defer"',
+				'',
 				''
 			),
 			$data
