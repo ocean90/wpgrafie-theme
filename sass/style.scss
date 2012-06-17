@@ -728,6 +728,7 @@ a:hover {
 }
 
 .twitter {
+	background: #49a4d3;
 	@include background(
 		url( '../img/social-t.png' ),
 		linear-gradient(
@@ -741,6 +742,7 @@ a:hover {
 }
 
 .facebook {
+	background: #677caa;
 	@include background(
 		url( '../img/social-fb.png' ),
 		linear-gradient(
@@ -758,6 +760,7 @@ a:hover {
 }
 
 .googleplus {
+	background: #d2432a;
 	@include background(
 		url( '../img/social-gp.png' ),
 		linear-gradient(
