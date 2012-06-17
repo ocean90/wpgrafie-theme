@@ -118,7 +118,7 @@ class DS_wpGrafie_Theme_Minify extends DS_wpGrafie_Theme {
 				'>\\1',
 				'\\1<',
 				'><',
-				'<script defer="defer"',
+				'<script async',
 				'',
 				''
 			),
