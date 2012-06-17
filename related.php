@@ -43,7 +43,7 @@ wp_reset_postdata();
 <div id="related-posts-row" class="row">
 	<div class="span9">
 		<div class="row">
-			<h3 id="related-title" class="icon" data-icon="ä">Themenähnliche Artikel</h3>
+			<h3 id="related-title" class="icon" data-icon="ä">Thematisch ähnliche Artikel</h3>
 		</div>
 		<div class="row">
 			<?php echo $output; ?>
