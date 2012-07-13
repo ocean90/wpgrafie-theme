@@ -689,6 +689,7 @@ a:hover {
 }
 
 #article .wp-caption-text {
+  text-align: center;
   font-size: 12px;
   color: #5e5e5e;
 }
@@ -1437,10 +1438,25 @@ li.archive-month {
 .banner-image,
 article img,
 .wp-caption,
-embed, object, iframe,
 img {
   max-width: 100%;
   height: auto;
+}
+
+.fluid-width-video-wrapper {
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+
+.fluid-width-video-wrapper iframe,
+.fluid-width-video-wrapper object,
+.fluid-width-video-wrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 768px) {

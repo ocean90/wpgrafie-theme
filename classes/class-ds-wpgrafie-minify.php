@@ -1,5 +1,5 @@
 <?php
-class DS_wpGrafie_Theme_Minify extends DS_wpGrafie_Theme {
+class DS_wpGrafie_Minify extends DS_wpGrafie_Theme {
 	/**
 	 * Placeholder to store <pre></pre> code.
 	 *

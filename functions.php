@@ -22,24 +22,6 @@ class DS_wpGrafie_Theme {
 	protected static $dev;
 
 	/**
-	 * Main script version.
-	 *
-	 * @since 2.0
-	 *
-	 * @var string
-	 */
-	private static $script_version = '0.1';
-
-	/**
-	 * Main stylesheet version.
-	 *
-	 * @since 2.0
-	 *
-	 * @var string
-	 */
-	private static $style_version = '0.3.1';
-
-	/**
 	 * Additional classes which will be autoloaded.
 	 *
 	 * @since 2.0
@@ -47,13 +29,18 @@ class DS_wpGrafie_Theme {
 	 * @var array
 	 */
 	private static $classes = array(
-		'DS_wpGrafie_Theme_Minify',
-		'DS_wpGrafie_Theme_Schnipsel',
+		// Theme releated
 		'DS_wpGrafie_Theme_Widgets',
 		'DS_wpGrafie_Comments',
+		'DS_wpGrafie_Theme_Script_Styles',
+		// Frontend stuff
+		'DS_wpGrafie_Plugin',
+		'DS_wpGrafie_Rewrite',
+		'DS_wpGrafie_Minify',
 		'DS_WP_Breadcrumb',
+		// Backend stuff
 		'DS_wpGrafie_WP_Planet_Feed',
-		'DS_wpGrafie_Plugin'
+		'DS_wpGrafie_Theme_Schnipsel',
 	);
 
 	/**
@@ -68,48 +55,64 @@ class DS_wpGrafie_Theme {
 
 		spl_autoload_register( array( __CLASS__, 'autoload' ) );
 
-		add_action( 'after_setup_theme', array( __CLASS__, 'init_hooks' ), 3 );
+		// Register actions
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_actions' ) );
 
-		/*add_action( 'after_setup_theme', array( __CLASS__, 'init_post_formats' ), 5 );
-		add_action( 'after_setup_theme', array( 'wpgrafie_Widgets', 'init' ), 12 );
+		// Remove some actions
+		add_action( 'after_setup_theme', array( __CLASS__, 'remove_actions' ) );
+
+		// Register menus
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_menus' ) );
+
+		// Register post images
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_post_thumbnails' ) );
+
+		// Register post formats
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_post_formats' ) );
+
+		// Register filters
+		add_action( 'after_setup_theme', array( __CLASS__, 'init_filters' ) );
 
 
-
-		add_action( 'init', array( 'wpgrafie_Schnipsel', 'init' ), 1 );
-
-		add_action( 'init', array( __CLASS__, 'set_pagination_base' ) );*/
-		add_action( 'init', array( __CLASS__, 'set_pagination_base' ) );
-		add_action( 'init', array( 'DS_wpGrafie_Theme_Schnipsel', 'init' ), 1 );
-		add_action( 'template_redirect', array( __CLASS__, 'init_scripts' ), 1 );
-		add_action( 'template_redirect', array( __CLASS__, 'init_styles' ), 1 );
-		add_action( 'after_setup_theme', array( __CLASS__, 'init_menus' ), 5 );
-		add_action( 'after_setup_theme', array( __CLASS__, 'init_post_thumbnails' ), 7 );
-
-		add_action( 'init', array( 'DS_wpGrafie_WP_Planet_Feed', 'init') );
 
 		#add_action( 'pre_get_posts', array( __CLASS__, 'filter_queries' ) );
 	}
 
 	/**
-	 * Initialize actions and filters.
+	 * Initialize post formats.
 	 *
-	 * @access public
-	 * @static
+	 * @since 1.0
+	 *
 	 * @return void
 	 */
-	public static function init_hooks() {
-	#	add_filter( 'pre_get_posts',			array( __CLASS__, 'exclude_pages_from_search' )						);
-	#	add_filter( 'pre_get_posts',			array( __CLASS__, 'include_post_type' )								);
-		#add_filter( 'post_class',				array( __CLASS__, 'add_custom_post_class' )							);
-	#	add_filter( 'comment_class',			array( __CLASS__, 'add_custom_comment_class' )						);
-	#	add_filter( 'body_class',				array( __CLASS__, 'add_custom_body_class' )							);
-	#	add_filter( 'get_comment_author_link', 	array( __CLASS__, 'comment_author_link_remove_nofollow' )			);
-	#	add_filter( 'get_comments_number', 		array( __CLASS__, 'get_comments_number_only_comments' ),	10, 2	);
-		add_filter( 'user_contactmethods',		array( __CLASS__, 'user_contactmethods' )							);
-	#	add_filter( 'the_content_feed',			array( __CLASS__, 'related_posts_in_feed' )							);
-		add_filter( 'img_caption_shortcode',	array( __CLASS__, 'img_caption_shortcode' ),				10, 3	);
-		add_filter( 'image_send_to_editor',		array( __CLASS__, 'image_send_to_editor' ),					10, 8	);
+	public static function init_post_formats() {
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'gallery',
+			'image',
+			'link',
+			'quote',
+			'status',
+			'video',
+		) );
+	}
 
+	public static function init_actions() {
+		// Register the custom post type
+		add_action( 'init', array( 'DS_wpGrafie_Theme_Schnipsel', 'init' ), 1 );
+
+		// Register pagination base
+		add_action( 'init', array( 'DS_wpGrafie_Rewrite', 'set_pagination_base' ) );
+
+		// Register script and styles
+		add_action( 'wp_enqueue_scripts', array( 'DS_wpGrafie_Theme_Script_Styles', 'init_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( 'DS_wpGrafie_Theme_Script_Styles', 'init_styles' ) );
+
+		// Register the WP Planet Feed
+		add_action( 'init', array( 'DS_wpGrafie_WP_Planet_Feed', 'init') );
+	}
+
+	public static function remove_actions() {
 		/* Clean up */
 		remove_action( 'wp_head',	'feed_links',						2		);
 		remove_action( 'wp_head',	'feed_links_extra',					3		);
@@ -124,31 +127,168 @@ class DS_wpGrafie_Theme {
 		remove_action( 'wp_head',	'wp_generator'								);
 		remove_action( 'wp_head',	'wp_shortlink_wp_head',				10, 0	);
 		remove_action( 'wp_head',	'rel_canonical'								);
+	}
 
+	/**
+	 * Initialize actions and filters.
+	 *
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	public static function init_filters() {
+		// Filter some queries
+		add_filter( 'pre_get_posts', array( __CLASS__, 'search_query' ) );
+		add_filter( 'pre_get_posts', array( __CLASS__, 'include_post_type_in_feed' ) );
 
+		// Add a custom class for the comment status
+		add_filter( 'comment_class', array( __CLASS__, 'add_custom_comment_class' ) );
+
+		// Be friendly
+		add_filter( 'get_comment_author_link', array( __CLASS__, 'remove_nofollow_from_comment_author_link' ) );
+
+		// More user info
+		add_filter( 'user_contactmethods', array( __CLASS__, 'user_contactmethods' ) );
+
+		// Replace sad HTML with HTML5
+		add_filter( 'img_caption_shortcode', array( __CLASS__, 'img_caption_shortcode' ), 10, 3 );
+	//	add_filter( 'image_send_to_editor', array( __CLASS__, 'image_send_to_editor' ),	10, 8 );
+
+		// Add some meta to categories
+		add_action( 'category_edit_form_fields', array( __CLASS__, 'category_banner_edit_form_field' ) );
+		add_action( 'category_add_form_fields', array( __CLASS__, 'category_banner_add_form_field' ) );
+		add_action( 'created_category', array( __CLASS__, 'save_category_banner' ) );
+		add_action( 'edited_category', array( __CLASS__, 'save_category_banner' ) );
+
+		// Remove p-tag around an image
+		add_filter( 'the_content', array( __CLASS__, 'unautop_for_images' ), 99 );
+
+		// Init the max width of the content
 		if ( ! isset( $GLOBALS['content_width'] ) )
 			$GLOBALS['content_width'] = 714;
 	}
 
+	/**
+	 * [unautop_for_images description]
+	 * Thx Frank Bueltge. http://bueltge.de/p-tag-bei-bilden-in-wordpress-ersetzen/1306/
+	 * @return [type] [description]
+	 */
+	public static function unautop_for_images( $content ) {
+		if ( is_feed() ) return $content;
+
+		$content = preg_replace(
+			'/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s',
+			'<figure>$1</figure>',
+			$content
+		);
+
+		return $content;
+	}
+
+	/**
+	 * Add comment status as a class.
+	 *
+	 * @access public
+	 * @static
+	 * @param mixed $classes
+	 * @param mixed $c (default: null)
+	 * @param mixed $comment_id (default: null)
+	 * @return void
+	 */
+	public static function add_custom_comment_class( $classes , $c = null , $comment_id = null) {
+		if ( is_admin() ) return $classes;
+		$status = wp_get_comment_status( $comment_id );
+		$status ? ( $classes[] = 'comment-' . $status ) : '';
+
+		return $classes;
+	}
+
+	/**
+	 * Remove rel="nofollow" from comment author link.
+	 *
+	 * @access public
+	 * @static
+	 * @param mixed $html
+	 * @return void
+	 */
+	public static function remove_nofollow_from_comment_author_link( $html ) {
+		$html = str_replace( ' nofollow', '', $html );
+
+		return $html;
+	}
+
+	/**
+	 * [search_query description]
+	 * @param  [type] $query [description]
+	 * @return [type]        [description]
+	 */
+	public static function search_query( $query ) {
+		if ( ! $query->is_search() )
+			return $query;
+
+		$query->set( 'post_type', array( 'post', 'schnipsel' ) );
+		$query->set( 'posts_per_page', -1 );
+		$query->set( 'no_found_rows', 1 );
+
+		return $query;
+	}
+
+	/**
+	 * [include_post_type_in_feed description]
+	 * @param  [type] $query [description]
+	 * @return [type]        [description]
+	 */
+	public static function include_post_type_in_feed( $query ) {
+		if ( $query->is_feed( get_default_feed() ) )
+			$query->set( 'post_type', array( 'post', 'schnipsel' ) );
+
+		return $query;
+	}
+
+	public function created_category( $term_id ) {
+
+	}
+
+	public function category_banner_add_form_field( $term ) {
+		?>
+<div class="form-field">
+	<label for="category_banner">Banner</label>
+	<input name="category_banner" id="category_banner" type="text" value="" size="40">
+	<p class="description">Banner, der die Kategorie repräsentiert.</p>
+</div>
+		<?php
+	}
+
+	public function category_banner_edit_form_field( $term ) {
+		?>
+<tr class="form-field">
+	<th scope="row" valign="top"><label for="category_banner">Banner</label></th>
+	<td><input name="category_banner" id="category_banner" type="text" value="" size="40">
+	<p class="description">Banner, der die Kategorie repräsentiert.</p></td>
+</tr>
+		<?php
+	}
+
 	public function image_send_to_editor( $html, $id, $caption, $title, $align, $url, $size, $alt ) {
+		// Not used.
 		return '<figure>' . $html . '</figure>';
 	}
 
 	public function img_caption_shortcode( $null, $attr, $content ) {
 		extract( shortcode_atts( array(
-			'id'    => '',
-			'align'    => 'alignnone',
-			'width'    => '',
+			'id'      => '',
+			'align'   => 'alignnone',
+			'width'   => '',
 			'caption' => ''
 		), $attr ) );
 
-		if ( 1 > (int) $width || empty($caption) )
+		if ( 1 > (int) $width || empty( $caption ) )
 			return $content;
 
 		if ( $id )
 			$id = 'id="' . esc_attr( $id ) . '" ';
 
-		return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
+		return '<figure ' . $id . 'class="wp-caption ' . esc_attr( $align ) . '" style="width: ' . (int) $width . 'px">' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 	}
 
 	/**
@@ -171,80 +311,7 @@ class DS_wpGrafie_Theme {
 		}
 	}
 
-	/**
-	 * Setzt die Seitenbasis auf /seite/. (Standard: /page/)
-	 *
-	 * @since 0.1
-	 *
-	 * @return void
-	 */
-	public static function set_pagination_base() {
-	 	global $wp_rewrite;
 
-		$wp_rewrite->pagination_base = 'seite';
-	}
-
-	/**
-	 * Initialize scripts.
-	 *
-	 * @since 0.1
-	 *
-	 * @return void
-	 */
-	public static function init_scripts() {
-		global $post;
-
-		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
-
-		wp_register_script(
-			self::$themeslug ,
-			sprintf(
-				'%s/js/jquery.%s%s.js',
-				get_stylesheet_directory_uri(),
-				self::$themeslug,
-				$dev
-			),
-			array( 'jquery' ),
-			self::$script_version,
-			true
-		);
-
-		wp_enqueue_script( self::$themeslug );
-
-		if ( ! empty( $post ) && is_singular() && get_comments_number( $post->ID ) > 0 )
-			wp_enqueue_script( 'comment-reply' );
-	}
-
-	/**
-	 * Initialize styles.
-	 *
-	 * @access public
-	 * @static
-	 * @return void
-	 */
-	public static function init_styles() {
-		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
-
-		wp_register_style(
-			self::$themeslug . '-webfont',
-			'http://fonts.googleapis.com/css?family=Bitter:400,700,400italic',
-			false,
-			'1.0'
-		);
-
-		wp_register_style(
-			self::$themeslug,
-			sprintf(
-				'%s/css/style%s.css',
-				get_stylesheet_directory_uri(),
-				$dev
-			),
-			array( self::$themeslug . '-webfont' ),
-			self::$style_version
-		);
-
-		wp_enqueue_style( self::$themeslug );
-	}
 
 	/**
 	 * Initialize custom menus.

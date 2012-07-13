@@ -12,7 +12,7 @@ while ( have_posts() ) :
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		</header>
 		<div class="excerpt">
-			<?php the_excerpt(); ?>
+			<p><?php echo get_post_meta( $post->ID, '_wpseo_edit_description', true ); ?></p>
 		</div>
 		<footer class="meta">
 			<span class="date">— <?php the_modified_date(); ?></span>
