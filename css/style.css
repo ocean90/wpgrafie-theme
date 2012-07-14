@@ -402,6 +402,7 @@ a:hover {
  */
 #about-me {
   padding:  1.25rem 0;
+  color: #111111;
 }
 
 #about-me .first {
@@ -429,19 +430,14 @@ a:hover {
 }
 
 .section-title {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(47%, transparent), color-stop(47%, #444444), color-stop(52%, #444444), color-stop(52%, transparent));
-  background: -webkit-linear-gradient(top, transparent 47%, #444444 47%, #444444 52%, transparent 52%);
-  background: -moz-linear-gradient(top, transparent 47%, #444444 47%, #444444 52%, transparent 52%);
-  background: -o-linear-gradient(top, transparent 47%, #444444 47%, #444444 52%, transparent 52%);
-  background: linear-gradient(top, transparent 47%, #444444 47%, #444444 52%, transparent 52%);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(47%, transparent), color-stop(47%, #111111), color-stop(52%, #111111), color-stop(52%, transparent));
+  background: -webkit-linear-gradient(top, transparent 47%, #111111 47%, #111111 52%, transparent 52%);
+  background: -moz-linear-gradient(top, transparent 47%, #111111 47%, #111111 52%, transparent 52%);
+  background: -o-linear-gradient(top, transparent 47%, #111111 47%, #111111 52%, transparent 52%);
+  background: linear-gradient(top, transparent 47%, #111111 47%, #111111 52%, transparent 52%);
   text-align: center;
   margin-bottom: 0.938rem;
-}
-
-#article .section-title {
-  border-bottom: 0;
-  font-size: 1rem;
-  font-weight: 400;
+  color: #111111;
 }
 
 .section-title span {
@@ -461,8 +457,7 @@ a:hover {
 }
 
 .list-post-big h2 {
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 1.188rem;
   margin-bottom: 0.938rem;
 }
 
@@ -475,8 +470,7 @@ a:hover {
 }
 
 .list-post-small h2 {
-  font-size: 0.938rem;
-  font-weight: 700;
+  font-size: 1rem;
   margin-bottom: 0.625rem;
 }
 
@@ -485,7 +479,7 @@ a:hover {
 }
 
 .list-posts h2 a {
-  color: #444444;
+  color: #111111;
   border-bottom: 0.063rem solid #444444;
   display: block;
 }
@@ -636,13 +630,13 @@ a:hover {
 }
 
 #article-header #article-title {
-  border-bottom: 0.125rem solid #444444;
+  border-bottom: 0.125rem solid #111111;
 }
 
 #article-header #article-title h2 {
-  font-weight: 700;
   font-size: 1.75rem;
   margin-top: 0.313rem;
+  color: #111111;
 }
 
 #article .description {
@@ -766,13 +760,13 @@ a:hover {
 
 #article h3 {
   font-size: 1.188rem;
-  margin:  1.875rem 0 1.25rem;
-  color: #000;
+  margin:  3.125rem 0 1.25rem;
+  color: #111111;
 }
 
-#article h4 {
+#article p ~ h4 {
   color: #132945;
-  margin:  1.875rem 0 0.938rem;
+  margin:  2.5rem 0 0.938rem;
   font-style: italic;
 }
 
@@ -801,43 +795,43 @@ a:hover {
 #author-box img {
   float: left;
   background: #fff;
-  padding: 3px;
-  -webkit-box-shadow: 0 1px 3px #aaaaaa;
-  -moz-box-shadow: 0 1px 3px #aaaaaa;
-  box-shadow: 0 1px 3px #aaaaaa;
+  padding: 0.188rem;
+  -webkit-box-shadow:  0 0.063rem 0.188rem #aaaaaa;
+  -moz-box-shadow:  0 0.063rem 0.188rem #aaaaaa;
+  box-shadow:  0 0.063rem 0.188rem #aaaaaa;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
-#author-box h3 {
+#author-box h5 {
   clear: none;
   float: left;
-  font-size: 14px;
+  font-size: 0.875rem;
   border-bottom: 0;
-  margin: 25px 0 0 5px;
+  margin:  1.563rem 0 0 0.313rem;
 }
 
 #author-box p {
-  padding-top: 10px;
+  padding-top: 0.625rem;
   clear: both;
   font-style: italic;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 #author-box .social-list {
-  margin: 0 0 0 5px;
+  margin: 0;
   list-style: none;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 #author-box .social-list li {
   display: inline-block;
-  padding-right: 7px;
+  padding-right: 0.438rem;
 }
 
 .social-list .icon:before, .social-list #reply-title:before {
-  padding-right: 5px;
+  padding-right: 0.313rem;
 }
 
 .social-list .g:before {
@@ -854,8 +848,8 @@ a:hover {
 
 #article #related-title {
   border-bottom: 0;
-  font-size: 1.25em;
-  margin: 1.5em 0 1.25em;
+  font-size: 1.25rem;
+  margin:  2.5rem 0 1.563rem;
 }
 
 #article #related-title:before {
@@ -993,9 +987,9 @@ a:hover {
  */
 #comments-title,
 #reply-title {
-  font-weight: 700;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   margin: 1.5em 0 1.25em;
+  color: #111111;
 }
 
 #comments-title:before,
@@ -1373,6 +1367,7 @@ li.archive-month {
   text-align: center;
   margin-bottom: 10px;
   text-shadow: 1px 1px 0 #111;
+  color: #f2f3f2;
 }
 
 #footer .section-title span {

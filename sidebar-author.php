@@ -12,7 +12,7 @@
 			?>
 			<div class="author-box">
 				<?php echo $avatar; ?>
-				<h3><?php echo $name; ?></h3>
+				<h5><?php echo $name; ?></h5>
 				<p><?php echo $desc; ?></p>
 				<?php
 				if ( ! empty( $social ) ) {

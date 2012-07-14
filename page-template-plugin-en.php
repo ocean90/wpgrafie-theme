@@ -40,18 +40,18 @@ while (have_posts()) :
 				</div>
 				<div class="plugin-info">
 					<div id="plugin-downloads" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="row">
-						<h3 class="section-title"><span>Downloads</span></h3>
+						<h2 class="section-title"><span>Downloads</span></h2>
 						<p>The plugin has been downloaded <?php echo $plugin_data->download->count; ?> times.<br/>
 							It got <?php echo $plugin_data->rating->feedback; ?> positive feedback, based on <?php echo $plugin_data->rating->count; ?> ratings from the plugin repo on <a href="http://wordpress.org/extend/plugins/<?php echo $plugin_data->slug; ?>">WordPress.org</a>.</p>
 						<meta itemprop="ratingValue" content="<?php echo esc_attr( $plugin_data->rating->rounded ); ?>" />
 						<meta itemprop="ratingCount" content="<?php echo esc_attr( $plugin_data->rating->count ); ?>" />
 					</div>
 					<div id="plugin-compatibility" class="row">
-						<h3 class="section-title"><span>WordPress Support</span></h3>
+						<h2 class="section-title"><span>WordPress Support</span></h2>
 						<p>The plugin requires WordPress <?php echo $plugin_data->compat->requires; ?> and is compatible up to WordPress <?php echo $plugin_data->compat->tested; ?> getestet.</p>
 					</div>
 					<div id="plugin-changelog" class="row">
-						<h3 class="section-title"><span>Changelog</span></h3>
+						<h2 class="section-title"><span>Changelog</span></h2>
 						<p>Last update on <?php echo $plugin_data->log->last_update; ?>.</p>
 						<?php echo $plugin_data->log->changes; ?>
 					</div>

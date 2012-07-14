@@ -220,6 +220,7 @@ a:hover {
  */
 #about-me {
 	padding: rem( 20px 0 );
+	color: darken( $grey-color, 20% );
 }
 
 #about-me .first {
@@ -251,19 +252,14 @@ a:hover {
 		linear-gradient(
 			top,
 			transparent 47%,
-			$grey-color 47%,
-			$grey-color 52%,
+			darken( $grey-color, 20% ) 47%,
+			darken( $grey-color, 20% ) 52%,
 			transparent 52%
 		)
 	);
 	text-align: center;
 	margin-bottom: rem( 15px );
-}
-// Plugin Sidebar
-#article .section-title {
-	border-bottom: 0;
-	font-size: rem( 16px );
-	font-weight: 400;
+	color: darken( $grey-color, 20% );
 }
 
 .section-title span {
@@ -284,8 +280,7 @@ a:hover {
 }
 
 .list-post-big h2 {
-	font-size: rem( 18px );
-	font-weight: 700;
+	font-size: rem( 19px );
 	margin-bottom: rem( 15px );
 }
 
@@ -298,8 +293,7 @@ a:hover {
 }
 
 .list-post-small h2 {
-	font-size: rem( 15px );
-	font-weight: 700;
+	font-size: rem( 16px );
 	margin-bottom: rem( 10px );
 }
 
@@ -308,7 +302,7 @@ a:hover {
 }
 
 .list-posts h2 a {
-	color: $grey-color;
+	color: darken( $grey-color, 20% );
 	border-bottom: rem( 1px ) solid $grey-color;
 	display: block;
 }
@@ -464,13 +458,13 @@ a:hover {
 
 // Article header title
 #article-header #article-title {
-	border-bottom: rem( 2px ) solid $grey-color;
+	border-bottom: rem( 2px ) solid darken( $grey-color, 20% );
 }
 
 #article-header #article-title h2 {
-	font-weight: 700;
 	font-size: rem( 28px );
 	margin-top: rem( 5px );
+	color: darken( $grey-color, 20% );
 }
 
 // Article desc
@@ -600,13 +594,13 @@ a:hover {
 
 #article h3 {
 	font-size: rem( 19px );
-	margin: rem( 30px 0 20px );
-	color: #000;
+	margin: rem( 50px 0 20px );
+	color: darken( $grey-color, 20% );
 }
 
-#article h4 {
+#article p ~ h4 {
 	color: $blue-color;
-	margin: rem( 30px 0 15px );
+	margin: rem( 40px 0 15px );
 	font-style: italic;
 }
 
@@ -638,39 +632,42 @@ a:hover {
 #author-box img {
 	float: left;
 	background: #fff;
-	padding: 3px;
-	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	padding: rem( 3px );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		lighten($grey-color, 40%)
+	);
 	@include box-sizing( content-box );
 }
 
-#author-box h3 {
+#author-box h5 {
 	clear: none;
 	float: left;
-	font-size: 14px;
+	font-size: rem( 14px );
 	border-bottom: 0;
-	margin: 25px 0 0 5px;
+	margin: rem( 25px 0 0 5px );
 }
 
 #author-box p {
-	padding-top: 10px;
+	padding-top: rem( 10px );
 	clear: both;
 	font-style: italic;
-	font-size: 14px;
+	font-size: rem( 14px );
 }
 
 #author-box .social-list {
-	margin: 0 0 0 5px;
+	margin: 0;
 	list-style: none;
-	font-size: 12px;
+	font-size: rem( 12px );
 }
 
 #author-box .social-list li {
 	display: inline-block;
-	padding-right: 7px;
+	padding-right: rem( 7px );
 }
 
 .social-list .icon:before {
-	padding-right: 5px;
+	padding-right: rem( 5px );
 }
 
 .social-list .g:before {
@@ -688,8 +685,8 @@ a:hover {
 // Related article
 #article #related-title {
 	border-bottom: 0;
-	font-size: em(20px);
-	margin: em(30px, 20px) 0 em(25px,20px);
+	font-size: rem( 20px );
+	margin: rem( 40px 0 25px );
 }
 
 #article #related-title:before {
@@ -834,9 +831,9 @@ a:hover {
  */
 #comments-title,
 #reply-title {
-	font-weight: 700;
-	font-size: em(20px);
+	font-size: rem(20px);
 	margin: em(30px, 20px) 0 em(25px,20px);
+	color: darken( $grey-color, 20% );
 }
 
 #comments-title:before,
@@ -1184,6 +1181,7 @@ li.archive-month {
 	text-align: center;
 	margin-bottom: 10px;
 	text-shadow: 1px 1px 0 #111;
+	color: $white-color;
 }
 
 #footer .section-title span {
