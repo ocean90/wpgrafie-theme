@@ -1,10 +1,37 @@
 // px2em
 @function em( $target, $context: $base-font-size ) {
 	@if ( $target == 0 ) {
-   		@return 0;
+		@return 0;
 	}
 
 	@return $target / $context + 0em;
+}
+
+// Based on https://github.com/bitmanic/rem/
+$baseline-px: 16px;
+@function rem( $px-values ) {
+	$baseline-rem: $baseline-px / 1rem;
+
+	@if type-of($px-values) == "number" {
+		@return $px-values / $baseline-rem;
+	} @else {
+		// Create an empty list that we can dump values into
+		$rem-values: unquote("");
+		@each $value in $px-values {
+			@if type-of($value) != "number" {
+				// If the value is no number, return the value as is
+				$rem-values: append($rem-values, $value);
+			} @else if $value == 0 {
+				// If the value is zero, return 0
+				$rem-values: append($rem-values, 0);
+			} @else {
+				$rem-values: append($rem-values, $value / $baseline-rem);
+			}
+		}
+
+		// Return the property and its list of converted values
+		@return $rem-values;
+	}
 }
 
 // Custom Border Radius

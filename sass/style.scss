@@ -28,10 +28,10 @@ body {
  */
 body, input, textarea {
 	font-family: Bitter, sans-serif;
-	font-size: em(16px);
-	line-height: 1.5;
+	font-size: rem( 16px );
+	line-height: 1.6;
 	color: $grey-color;
-	text-shadow: 1px 1px 0 #fff;
+	text-shadow: rem( 1px 1px 0 #fff );
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -90,22 +90,27 @@ a:hover {
  * Header
  */
 #banner {
-	height: em(200px);
-	background: transparent url( '../img/wplogo.png') no-repeat 90% 100%;
+	height: rem( 200px );
+	background: transparent url( '../img/wplogo.png' ) no-repeat 90% 100%;
 }
 
 #logo {
-	background: transparent url( '../img/logo.png') no-repeat;
+	background: transparent url( '../img/logo.png' ) no-repeat;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	height: 92px;
-	width: 489px;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	background-size:cover;
-	margin: 40px 0 0 20px;
+	height: rem( 92px );
+	width: rem( 489px );
+	background-size: 100%;
+	margin: rem( 40px 0 0 20px );
 	display: inline-block;
+}
+
+@media only screen and ( -webkit-min-device-pixel-ratio: 1.5 ) {
+	#logo {
+		height: rem( 46px );
+		width: rem( 244px );
+	}
 }
 
 /**
@@ -118,14 +123,14 @@ a:hover {
 
 #page-navigation #menu-oben li {
 	display: inline-block;
-	font-size: em(15px);
-	margin: 0 em(15px, 15px) 0 0;
+	font-size: rem( 15px );
+	margin: rem( 0 20px 0 0 );
 }
 
 #page-navigation #menu-oben li a {
 	@include transition( none );
 	display: inline-block;
-	padding-top: em(5px, 15px);
+	padding-top: rem( 5px );
 }
 
 #page-navigation #menu-oben li:last-child {
@@ -135,7 +140,7 @@ a:hover {
 #page-navigation #menu-oben li a:hover,
 #page-navigation #menu-oben li a:focus,
 #page-navigation #menu-oben .current-menu-item a {
-	border-top: em(5px, 15px) solid $blue-color;
+	border-top: rem( 5px solid $blue-color );
 	padding-top: 0;
 }
 
@@ -150,8 +155,8 @@ a:hover {
 	}
 
 	a:before {
-		font-size: em(13px, 15px);
-		padding-right: em(4px, 13px);
+		font-size: rem( 13px );
+		padding-right: rem( 5px );
 	}
 
 	a:hover,
@@ -165,18 +170,18 @@ a:hover {
  * Breadcrumb navigation
  */
 #breadcrumb-navigation {
-	padding-top: em(30px);
+	padding-top: rem( 30px );
 }
 
 #breadcrumb-navigation ul:before {
-	font-size: 12px;
-	padding-right: 5px;
+	font-size: rem( 12px );
+	padding-right: rem( 5px );
 	color: lighten($grey-color, 10%);
 }
 
 #breadcrumb-navigation ul li {
 	display: inline-block;
-	font-size: em(14px);
+	font-size: rem( 14px );
 }
 
 #breadcrumb-navigation .sep {
@@ -203,28 +208,30 @@ a:hover {
 #content-container {
 	background: $white-color;
 	width: 100%;
-	@include box-shadow( 0 -5px 10px -5px rgba(0, 0, 0, 0.8) );
-	padding-bottom: 40px;
+	@include box-shadow(
+		rem( 0 -5px 10px -5px )
+		rgba(0, 0, 0, 0.8)
+	);
+	padding-bottom: rem( 40px );
 }
 
 /**
  * Index
  */
 #about-me {
-	padding: 20px 0;
+	padding: rem( 20px 0 );
 }
 
 #about-me .first {
-	font-size: em(28px);
+	font-size: rem( 30px );
 }
 
 #about-me .second {
-	font-size: em(20px);
+	font-size: rem( 20px );
 }
 
 #about-me .third {
-	font-size: em(15px);
-	margin-top: 30px;
+	margin-top: rem( 30px );
 }
 
 #about-me .word {
@@ -236,7 +243,7 @@ a:hover {
 }
 
 #about-me .about-text {
-	margin-top: 70px;
+	margin-top: rem( 70px );
 }
 
 .section-title {
@@ -250,54 +257,59 @@ a:hover {
 		)
 	);
 	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: rem( 15px );
 }
-
+// Plugin Sidebar
 #article .section-title {
 	border-bottom: 0;
-	font-size: 16px;
+	font-size: rem( 16px );
 	font-weight: 400;
 }
 
 .section-title span {
 	background: $white-color;
-	padding: 0 10px;
+	padding: rem( 0 10px );
 }
 
+// Abstand Widgets
 .sidebar > div {
-	margin-bottom: 20px;
+	margin-bottom: rem( 25px );
 }
 
 /**
  * Index: Last posts
  */
 .list-post-big {
-	margin-bottom: 60px;
+	margin-bottom: rem( 50px );
 }
 
 .list-post-big h2 {
-	font-size: 18px;
+	font-size: rem( 18px );
 	font-weight: 700;
-	margin-bottom: 10px;
+	margin-bottom: rem( 15px );
+}
+
+.list-post-big p {
+	margin-bottom: rem( 8px );
 }
 
 .list-post-small {
-	margin-bottom: 50px;
+	margin-bottom: rem( 50px );
 }
 
 .list-post-small h2 {
-	font-size: 16px;
+	font-size: rem( 15px );
 	font-weight: 700;
-	margin-bottom: 10px;
+	margin-bottom: rem( 10px );
 }
 
 .list-post-small .excerpt {
-	font-size: 14px;
+	font-size: rem( 14px );
 }
 
 .list-posts h2 a {
 	color: $grey-color;
-	border-bottom: 1px solid $grey-color;
+	border-bottom: rem( 1px ) solid $grey-color;
 	display: block;
 }
 
@@ -310,31 +322,34 @@ a:hover {
 }
 
 .list-posts .wp-post-image {
-	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		lighten($grey-color, 40%)
+	);
 }
 
 .list-posts .meta {
-	margin-top: 10px;
+	margin-top: rem( 10px );
 }
 
 .list-posts .date {
 	color: lighten($grey-color, 40%);
-	font-size: 12px;
+	font-size: rem( 12px );
 }
 
 .list-posts .more {
 	float: right;
-	font-size: 14px;
-	padding: 2px 4px;
+	font-size: rem( 14px );
+	padding: rem( 2px 4px );
 	background: lighten($blue-color, 40%);
 	color: #fff;
-	border: 1px solid lighten($blue-color, 20%);
+	border: rem( 1px ) solid lighten($blue-color, 20%);
 	@include transition( all 0.2s ease-out );
 	text-shadow: none;
 }
 
 .list-post-small .more {
-	font-size: 12px;
+	font-size: rem( 12px );
 }
 
 .list-posts .more:hover {
@@ -343,7 +358,11 @@ a:hover {
 
 .list-posts .more:active,
 .list-posts .more:focus {
-	@include box-shadow( inset 0 1px 2px rgba(0, 0, 0, 0.4) );
+	@include box-shadow(
+		inset
+		rem( 0 1px 2px )
+		rgba(0, 0, 0, 0.4)
+	);
 	background: lighten($blue-color, 20%);
 }
 
@@ -352,16 +371,16 @@ a:hover {
  */
 #featured-posts h4 {
 	color: lighten($grey-color, 40%);
-	font-size: 12px;
+	font-size: rem( 12px );
 	font-style: italic;
 }
 
 #featured-posts a {
-	font-size: 14px;
+	font-size: rem( 14px );
 }
 
 #featured-posts div {
-	margin-bottom: 15px;
+	margin-bottom: rem( 15px );
 }
 
 /**
@@ -372,13 +391,13 @@ a:hover {
 }
 
 #my-plugins p {
-	margin-bottom: 25px;
-	font-size: 14px;
+	margin-bottom: rem( 15px );
+	font-size: rem( 14px );
 }
 
 #my-plugins a span {
 	color: lighten($blue-color, 40%);
-	border-bottom: 1px solid lighten($grey-color, 50%);
+	border-bottom: rem( 1px ) solid lighten($grey-color, 50%);
 	@include transition( all 0.2s ease-out );
 }
 
@@ -388,7 +407,10 @@ a:hover {
 }
 
 #my-plugins img {
-	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		lighten($grey-color, 40%)
+	);
 }
 
 /**
@@ -401,13 +423,13 @@ a:hover {
  */
 #my-topics a {
 	display: block;
-	font-size: 14px;
-	margin-bottom: 10px;
+	font-size: rem( 14px );
+	margin-bottom: rem( 15px );
 }
 
 #my-topics a:after {
 	color: lighten($grey-color, 40%);
-	font-size: 12px;
+	font-size: rem( 12px );
 	font-style: italic;
 	display: block;
 	content: attr(title);
@@ -416,8 +438,10 @@ a:hover {
 /**
  * Article
  */
+
+// Article header image
 #article-header {
-	margin: em(5px) 0 em(20px);
+	margin: rem( 0 0 20px );
 }
 
 .big-image {
@@ -426,7 +450,11 @@ a:hover {
 }
 
 .big-image .vignette {
-	@include box-shadow( inset 0 0 30px -10px rgba(0,0,0,.8) );
+	@include box-shadow(
+		inset
+		rem( 0 0 30px -10px )
+		rgba( 0, 0, 0, 0.8 )
+	);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -434,19 +462,21 @@ a:hover {
 	bottom: 0;
 }
 
+// Article header title
+#article-header #article-title {
+	border-bottom: rem( 2px ) solid $grey-color;
+}
+
 #article-header #article-title h2 {
 	font-weight: 700;
-	font-size: em(30px);
-	margin-top: 10px;
+	font-size: rem( 28px );
+	margin-top: rem( 5px );
 }
 
-#article-header #article-title {
-	border-bottom: em(2px) solid $grey-color;
-}
-
+// Article desc
 #article .description {
 	font-style: italic;
-	margin-bottom: em(20px);
+	margin-bottom: rem( 20px );
 	color: lighten($grey-color, 10%);
 }
 
@@ -454,32 +484,39 @@ a:hover {
 #article .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 10px;
+	margin-right: rem( 15px );
 }
 
 #article .alignright {
 	display: inline;
 	float: right;
-	margin-left: 10px;
+	margin-left: rem( 15px );
 }
 
 #article .aligncenter {
 	clear: both;
 	display: block;
-	margin: 20px auto;
+	margin: rem( 20px auto );
 }
 
 #article img[class*="wp-image-"] {
 	background: #fff;
-	padding: 3px;
-	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	padding: rem( 5px );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		lighten($grey-color, 40%)
+	);
 	@include box-sizing( content-box );
 }
 
 #article .wp-caption {
-	padding: 3px;
+	padding: rem( 5px );
 	background: #fff;
-	@include box-shadow( 0 1px 3px lighten($grey-color, 40%) );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		lighten($grey-color, 40%)
+	);
+	@include box-sizing( content-box );
 }
 
 #article .wp-caption img {
@@ -489,21 +526,27 @@ a:hover {
 
 #article .wp-caption-text {
 	text-align: center;
-	font-size: 12px;
+	font-size: rem( 12px );
 	color: lighten($grey-color, 10%);
 }
 
 // Article code blocks
 #article pre {
 	clear: both;
-	@include box-shadow( inset 1px 1px 5px rgba(0, 0, 0, 0.25), 0 1px 0 #fff );
+	@include box-shadow(
+		inset
+		rem( 1px 1px 3px )
+		rgba(0, 0, 0, 0.25),
+		rem( 1px 1px 0 )
+		#fff
+	);
 	background: #fefeef;
-	padding: em(3px,13px) em(6px,13px);
+	padding: rem( 5px 8px );
 	overflow: auto;
-	font-size: em(13px);
-	margin: em(25px, 13px) 0;
+	font-size: rem( 13px );
+	margin: rem( 25px 0 );
 	color: darken($grey-color, 10%);
-	max-height: 900px;
+	max-height: rem( 900px );
 }
 
 #article pre .code-comment {
@@ -512,71 +555,83 @@ a:hover {
 
 #article code {
 	white-space: nowrap;
-	padding: 2px 4px;
-	font-size: em(14px);
+	padding: rem( 0 3px );
+	font-size: rem( 14px );
 	background: #fefeef;
+	border-bottom: rem( 1px solid darken( #fefeef, 10% ) );
 	color: darken($grey-color, 10%);
 }
 
 // Article blockqoutes
 #article blockquote {
-	position: relative;
-	z-index: 2;
-	margin: em(25px) em(20px) em(25px) em(40px);
+	margin: rem( 25px 0 );
 	font-style: italic;
 	color: lighten($grey-color, 10%);
-	border-left: 5px solid lighten($grey-color, 10%);
-	padding-left: 10px;
+	border-left: rem( 3px ) solid $blue-color;
+	padding: rem( 0 20px );
+}
+
+#article blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+#article blockquote cite {
+	color: $grey-color;
+	font-style: normal;
 }
 
 // Article lists
 #article ul {
 	list-style: square;
-	margin: em(25px) 0 em(25px) em(40px);
+	margin: rem( 25px 0 25px 30px );
 }
 
 #article ol {
 	list-style-type: decimal;
-	margin: em(25px) 0 em(25px) em(40px);
+	margin: rem( 25px 0 25px 30px );
 }
 
 // Article Headlines
 #article h2,
 #article h3,
-#article h4,
-#article h5,
-#article h6 {
+#article h4 {
 	clear: both;
 }
 
 #article h3 {
-	font-size: 19px;
-	font-weight: 700;
-	border-bottom: 1px dashed lighten($grey-color, 10%);
-	margin: 20px 0;
+	font-size: rem( 19px );
+	margin: rem( 30px 0 20px );
+	color: #000;
 }
 
 #article h4 {
 	color: $blue-color;
-	font-weight: 700;
-	border-bottom: 1px dotted $blue-color;
-	margin: 15px 0;
-}
-
-#article h5 {
-	text-transform: uppercase;
-	margin: 10px 0;
-}
-
-#article h6 {
-	font-size: 14px;
+	margin: rem( 30px 0 15px );
 	font-style: italic;
-	margin: 10px 0;
 }
 
 // Article text
 #article p {
-	margin-bottom: em(12px);
+	margin-bottom: rem( 26px );
+}
+
+// Article formatting
+#article strong {
+	font-weight: 700;
+}
+
+#article b {
+	font-weight: 700;
+	color: $blue-color;
+}
+
+#article em {
+	font-style: italic;
+}
+
+#article i {
+	font-style: italic;
+	font-family: Georgia;
 }
 
 // Article Author
