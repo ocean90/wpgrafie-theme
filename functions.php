@@ -163,9 +163,15 @@ class DS_wpGrafie_Theme {
 		// Remove p-tag around an image
 		add_filter( 'the_content', array( __CLASS__, 'unautop_for_images' ), 99 );
 
+		add_filter( 'post_class', array( __CLASS__, 'remove_hentry_microformat' ) );
+
 		// Init the max width of the content
 		if ( ! isset( $GLOBALS['content_width'] ) )
 			$GLOBALS['content_width'] = 714;
+	}
+
+	public static function remove_hentry_microformat( $classes ) {
+		return array_diff( $classes, array( 'hentry' ) );
 	}
 
 	/**

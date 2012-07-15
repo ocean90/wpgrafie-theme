@@ -19,30 +19,23 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		add_action( 'init', array( __CLASS__, 'register_taxonomy' ) );
 		add_action( 'init', array( __CLASS__, 'register_post_type' ) );
 		//add_action( 'save_post', array( __CLASS__, 'metabox_save' ) );
-		add_action( 'save_post', array( __CLASS__, 'remove_last_schnipsel_transient' ),		10,	2	);
 
 		add_filter( 'wpseo_set_title', array( __CLASS__, 'wpseo_set_title' ) );
-
-		add_filter( 'term_links-sprache', array( __CLASS__, 'term_links_sprache' ) );
-		add_filter( 'term_links-wp-version', array( __CLASS__, 'term_links_wp_version' ) );
-		add_filter( 'term_links-schwierigkeitsgrad', array( __CLASS__, 'term_links_schwierigkeitsgrad' ) );
 
 		add_action( 'wp_ajax_gist', array( __CLASS__, 'gist' ) );
 		add_action( 'admin_print_scripts-post.php', array( __CLASS__, 'gist_js' ) );
 		add_action( 'admin_print_scripts-post-new.php', array( __CLASS__, 'gist_js' ) );
 
-		add_filter( 'the_content', array( __CLASS__, 'convert_to_gist' ), 999999 );
-	}
+		add_filter( 'the_content', array( __CLASS__, 'pre_process_shortcode' ), 1 );
 
-	public static function remove_last_schnipsel_transient( $id, $post ) {
-		if ( ! empty( $post->post_type ) && 'schnipsel' == $post->post_type )
-			delete_transient( 'last_schnipsel' );
+		//add_filter( 'the_content', array( __CLASS__, 'convert_to_gist' ), 999999 );
 
+		#add_shortcode( 'code', array( __CLASS__, 'gist_shortcode' ) );
 	}
 
 	public static function wpseo_set_title( $title ) {
 		if ( is_tax() && self::is_taxonomy_assigned_to_post_type( 'schnipsel' ) )
-			return str_replace( '%taxonomies%', get_taxonomy( get_query_var( 'taxonomy' ) )->labels->singular_name . ' › Schnipsel', $title );
+			return str_replace( '%taxonomies%', get_taxonomy( get_query_var( 'taxonomy' ) )->labels->singular_name . ' / Schnipsel', $title );
 
 		return $title;
 	}
@@ -225,37 +218,6 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		return;
 	}
 
-	public static function term_links_sprache( $links ) {
-		foreach ( $links as $i => $link )
-			$links[$i] = str_replace( 'rel="tag"', 'title="Weitere Codeschnipsel in dieser Sprache"', $link);
-
-		return $links;
-	}
-
-	public static function term_links_wp_version( $links ) {
-		foreach ( $links as $i => $link )
-			$links[$i] = str_replace( 'rel="tag"', 'title="Weitere Codeschnipsel, die ab dieser WordPress Version möglich sind"', $link);
-
-		return $links;
-	}
-
-	public static function term_links_schwierigkeitsgrad( $links ) {
-		foreach ( $links as $i => $link )
-			$links[$i] = str_replace( 'rel="tag"', 'title="Weitere Codeschnipsel zu diesem Schwierigkeitsgrad"', $link);
-
-		return $links;
-	}
-
-	public static function get_the_meta( $post_id ) {
-		$meta = '<ul class="meta">';
-		$meta .= get_the_term_list( $post_id, 'sprache', '<li>', '</li><li>', '</li>' );
-		$meta .= get_the_term_list( $post_id, 'wp-version', '<li>', '</li><li>', '</li>' );
-		$meta .= get_the_term_list( $post_id, 'schwierigkeitsgrad', '<li>', '</li><li>', '</li>' );
-		$meta .= '<li><a href="/schnipsel/" title="Alle Codeschnipsel anzeigen">Alle Codeschnipsel</a></li>';
-		$meta .= '</ul>';
-		echo $meta;
-	}
-
 	/**
 	 * Prüft, ob eine gegebene oder aktuell nachgefragte Taxonomy einem gegebenen Post Type zugeordnet ist.
 	 *
@@ -294,9 +256,13 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 
 		check_ajax_referer( 'schnipsel_gist' );
 
-		$gist_url = "https://api.github.com/gists/{$gist_id}";
 
-		$gist_body = wp_remote_retrieve_body( wp_remote_get( $gist_url ) );
+		$gist_body = wp_remote_retrieve_body(
+			wp_remote_get(
+				"https://api.github.com/gists/{$gist_id}",
+				array( 'sslverify' => false )
+			)
+		);
 		$gist_body = json_decode( $gist_body );
 
 		if ( empty( $gist_body ) )
@@ -318,17 +284,10 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 
 		foreach ( $gist_body->files as $file ) {
 			$gist_files[] = $file->filename;
-			$gist_data[$file->filename] = sprintf(
-				'<div class="gist-syntax" id="gist-%s">
-				<div class="meta">
-				<span class="type">%s</span><a href="%s" target="_blank" rel="nofollow">RAW</a>
-				</div>
-				<pre>%s</pre>
-				</div>',
-				$file->filename,
-				$file->language,
-				esc_url( $file->raw_url ),
-				esc_html( $file->content )
+			$gist_data[$file->filename] = array(
+				'language' => $file->language,
+				'raw_url'  => esc_url_raw( $file->raw_url ),
+				'content'  => $file->content
 			);
 		}
 
@@ -340,13 +299,86 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		) ) );
 	}
 
+	public static function pygmentize( $filename, $code, $language, $options = '' ) {
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		$tmp_file = wp_tempnam( $filename );
+		$tmp_f_file = wp_tempnam( 'pygmentized_' . $filename );
+
+		$file_handle = fopen( $tmp_file, "w" );
+		fwrite( $file_handle, $code );
+		fclose( $file_handle );
+
+		$language = strtolower( $language );
+		$options = $options ? '-O ' . $options : '';
+
+		$command = "pygmentize -f html $options -l $language -o $tmp_f_file $tmp_file";
+		exec( $command );
+
+		$file_handle = fopen( $tmp_f_file, "r" );
+		$pygmentized = fread( $file_handle, filesize( $tmp_f_file ) );
+		fclose( $file_handle );
+
+		unlink( $tmp_file );
+		unlink( $tmp_f_file );
+
+		return $pygmentized;
+	}
+
+	// http://wpforce.com/prevent-wpautop-filter-shortcode/
+	public static function pre_process_shortcode( $content ) {
+		global $shortcode_tags;
+
+		// Backup current registered shortcodes and clear them all out
+		$orig_shortcode_tags = $shortcode_tags;
+		$shortcode_tags = array();
+
+		add_shortcode( 'code', array( __CLASS__, 'gist_shortcode' ) );
+
+		// Do the shortcode (only the one above is registered)
+		$content = do_shortcode( $content );
+
+		// Put the original shortcodes back
+		$shortcode_tags = $orig_shortcode_tags;
+
+		return $content;
+	}
+
+	public static function gist_shortcode( $atts, $content = null ) {
+		global $post;
+
+		if ( empty( $atts['gist'] ) && empty( $content ) )
+			return false;
+
+		if ( ! empty( $atts['gist'] ) ) {
+			$gist_files = get_post_meta( $post->ID, '_gist_data', true );
+
+			if ( empty( $gist_files ) )
+				return false;
+
+			$gist_file = $gist_files[ $atts['gist'] ];
+			$filename = $atts['gist'];
+			$code = $gist_file['content'];
+			$language = $gist_file['language'];
+		} else {
+			$code = $content;
+			$filename = md5( $code );
+			$language = $atts['language'];
+		}
+
+		$options = ! empty( $atts['options'] ) ? $atts['options'] : '';
+
+		$pygmentized_code = self::pygmentize( $filename, $code, $language, $options );
+
+		return $pygmentized_code;
+	}
+
 	public function gist_js() {
 		global $current_screen;
 
 		if ( 'schnipsel' != $current_screen->id )
 			return;
 
-		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
+		$dev = self::$dev ? '' : '.min';
 
 		wp_register_script(
 			self::$themeslug . '-admin' ,
@@ -364,29 +396,5 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		wp_enqueue_script( self::$themeslug . '-admin' );
 	}
 
-	public function convert_to_gist( $content ) {
-		global $post;
-
-		if ( 'schnipsel' != $post->post_type )
-			return $content;
-
-		$gist_data = get_post_meta( $post->ID, '_gist_data', true );
-
-		if ( empty( $gist_data ) )
-			return $content;
-
-		foreach ( $gist_data as $file => $file_data ) {
-			$files[] = '/{' . $file . '}/';
-			$data[] = $file_data;
-		}
-
-		$content = preg_replace(
-			$files,
-			$data,
-			$content
-		);
-
-		return $content;
-	}
 }
 ?>
