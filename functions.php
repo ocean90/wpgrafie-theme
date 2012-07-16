@@ -155,10 +155,10 @@ class DS_wpGrafie_Theme {
 	//	add_filter( 'image_send_to_editor', array( __CLASS__, 'image_send_to_editor' ),	10, 8 );
 
 		// Add some meta to categories
-		add_action( 'category_edit_form_fields', array( __CLASS__, 'category_banner_edit_form_field' ) );
-		add_action( 'category_add_form_fields', array( __CLASS__, 'category_banner_add_form_field' ) );
-		add_action( 'created_category', array( __CLASS__, 'save_category_banner' ) );
-		add_action( 'edited_category', array( __CLASS__, 'save_category_banner' ) );
+	//	add_action( 'category_edit_form_fields', array( __CLASS__, 'category_banner_edit_form_field' ) );
+	//	add_action( 'category_add_form_fields', array( __CLASS__, 'category_banner_add_form_field' ) );
+	//	add_action( 'created_category', array( __CLASS__, 'save_category_banner' ) );
+	//	add_action( 'edited_category', array( __CLASS__, 'save_category_banner' ) );
 
 		// Remove p-tag around an image
 		add_filter( 'the_content', array( __CLASS__, 'unautop_for_images' ), 99 );

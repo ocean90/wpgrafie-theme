@@ -70,7 +70,7 @@
 	};
 
 	if ( ( $( 'body.single' ).length || $( 'body.page' ).length ) && $('#social-row').is(":visible") )
-		setTimeout( load_social, 4000 ); // 4 seconds
+		setTimeout( load_social, 5000 ); // 5 seconds
 
 	// Google Analytics
 	$.getScript( '//www.google-analytics.com/ga.js', function() {

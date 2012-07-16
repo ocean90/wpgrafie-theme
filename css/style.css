@@ -610,7 +610,8 @@ a:hover {
 /**
  * Article
  */
-#article-header {
+#article-header,
+#taxarchive-title {
   margin:  0 0 1.25rem;
 }
 
@@ -630,11 +631,13 @@ a:hover {
   bottom: 0;
 }
 
-#article-header #article-title {
+#article-header #article-title,
+#taxarchive-title {
   border-bottom: 0.125rem solid #111111;
 }
 
-#article-header #article-title h2 {
+#article-header #article-title h2,
+#taxarchive-title h2 {
   font-size: 1.75rem;
   margin-top: 0.313rem;
   color: #111111;

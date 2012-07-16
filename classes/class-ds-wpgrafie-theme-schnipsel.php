@@ -27,11 +27,6 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		add_action( 'admin_print_scripts-post-new.php', array( __CLASS__, 'gist_js' ) );
 
 		add_filter( 'the_content', array( __CLASS__, 'pre_process_shortcode' ), 1 );
-
-		// Remove it!
-		add_filter( 'the_content', array( __CLASS__, 'convert_to_gist' ), 999999 );
-
-		#add_shortcode( 'code', array( __CLASS__, 'gist_shortcode' ) );
 	}
 
 	public static function wpseo_set_title( $title ) {
@@ -395,31 +390,6 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		);
 
 		wp_enqueue_script( self::$themeslug . '-admin' );
-	}
-
-	public function convert_to_gist( $content ) {
-		global $post;
-
-		if ( 'schnipsel' != $post->post_type )
-			return $content;
-
-		$gist_data = get_post_meta( $post->ID, '_gist_data', true );
-
-		if ( empty( $gist_data ) )
-			return $content;
-
-		foreach ( $gist_data as $file => $file_data ) {
-			$files[] = '/{' . $file . '}/';
-			$data[] = $file_data;
-		}
-
-		$content = preg_replace(
-			$files,
-			$data,
-			$content
-		);
-
-		return $content;
 	}
 }
 ?>
