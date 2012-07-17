@@ -667,12 +667,13 @@ a:hover {
 }
 
 #article h3 {
-	font-size: rem( 19px );
+	font-size: rem( 22px );
 	margin: rem( 50px 0 20px );
 	color: darken( $grey-color, 20% );
 }
 
 #article h4 {
+	font-size: rem( 18px );
 	color: $blue-color;
 	margin: rem( 40px 0 15px );
 	font-style: italic;
