@@ -666,7 +666,7 @@ a:hover {
 #article .aligncenter {
   clear: both;
   display: block;
-  margin:  1.25rem auto;
+  margin:  3.125rem auto;
 }
 
 #article img[class*="wp-image-"] {
