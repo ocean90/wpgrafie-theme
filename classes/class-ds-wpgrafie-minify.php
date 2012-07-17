@@ -108,7 +108,7 @@ class DS_wpGrafie_Minify extends DS_wpGrafie_Theme {
 				'/\>\s+\</s',
 			#	'/<script/',
 				"/ type=(\'|\")text\/javascript(\'|\")/",
-				'/((src|href)=(\'|\"))http:\/\/wpgrafie.wpms.dev/',
+				'/((src|href)=(\'|\"))http:\/\/wpgrafie.de/',
 				'/<base>/'
 			),
 			array(
