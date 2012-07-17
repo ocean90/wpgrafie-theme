@@ -203,6 +203,7 @@ class DS_wpGrafie_Theme {
 				foreach ( $tags as $tag )
 					$meta .= sprintf( '<meta property="http://ogp.me/ns/article#tag" content="%s">', esc_attr( $tag->name ) );
 
+
 			if ( has_post_thumbnail() ) {
 				$image = wp_get_attachment_image_src(
 					get_post_thumbnail_id()
@@ -217,7 +218,7 @@ class DS_wpGrafie_Theme {
 			}
 		}
 
-		if ( ! has_post_thumbnail() ) {
+		if ( ! has_post_thumbnail() || is_home() || is_archive() || is_search() ) {
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', esc_url( get_stylesheet_directory_uri() . '/img/wpgrafie-logo.png' ) );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', '200' );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', '200' );
