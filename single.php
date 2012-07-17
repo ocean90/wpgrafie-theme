@@ -11,7 +11,7 @@ while (have_posts()) :
 				<?php echo get_the_post_thumbnail( null, 'article-image-big', array( 'alt' => '', 'title' => '' ) ); ?>
 			</div>
 			<div class="row" id="article-title">
-				<h2><?php the_title(); ?></h2>
+				<h2 itemprop="name"><?php the_title(); ?></h2>
 			</div>
 		</header>
 		<div class="row">

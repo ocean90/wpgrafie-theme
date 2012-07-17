@@ -201,11 +201,16 @@ class DS_wpGrafie_Theme {
 					get_post_thumbnail_id()
 				);
 
-				$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', $image[0] );
-				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', $image[1] );
-				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', $image[2] );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', esc_url( $image[0] ) );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', esc_attr( $image[1] ) );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', esc_attr( $image[2] ) );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );
+
+				// Google+
 				$meta .= sprintf( '<link rel="image_src" href="%s">',  $image[0] );
 			}
+
+
 
 			echo $meta;
 		}
