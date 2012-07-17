@@ -110,6 +110,8 @@ class DS_wpGrafie_Theme {
 
 		// Register the WP Planet Feed
 		add_action( 'init', array( 'DS_wpGrafie_WP_Planet_Feed', 'init') );
+
+		add_action( 'wp_head', array( __CLASS__, 'social_meta' ) );
 	}
 
 	public static function remove_actions() {
@@ -168,6 +170,35 @@ class DS_wpGrafie_Theme {
 		// Init the max width of the content
 		if ( ! isset( $GLOBALS['content_width'] ) )
 			$GLOBALS['content_width'] = 714;
+	}
+
+	public static function social_meta() {
+		if ( is_feed() or is_trackback() )
+			return;
+
+		if( is_singular() ) {
+			$meta = '';
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#title" content="%s">', esc_attr( get_the_title() ) ) ;
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#type" content="%s">', 'article' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#article:published_time" content="%s">', esc_attr( get_the_date('Y-m-d') ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#url" content="%s">', esc_url( get_permalink() ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#description" content="%s">', esc_attr( get_post_meta( get_the_ID(), '_wpseo_edit_description', true ) ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#locale" content="%s">', 'de_DE' );
+
+			if ( has_post_thumbnail() ) {
+				$image = wp_get_attachment_image_src(
+					get_post_thumbnail_id()
+				);
+
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', $image[0] );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', $image[1] );
+				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', $image[2] );
+				$meta .= sprintf( '<link rel="image_src" href="%s">',  $image[0] );
+			}
+
+			echo $meta;
+		}
 	}
 
 	public static function remove_hentry_microformat( $classes ) {
