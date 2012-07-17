@@ -129,6 +129,9 @@ class DS_wpGrafie_Theme {
 		remove_action( 'wp_head',	'wp_generator'								);
 		remove_action( 'wp_head',	'wp_shortlink_wp_head',				10, 0	);
 		remove_action( 'wp_head',	'rel_canonical'								);
+
+		// Facebook
+		remove_action( 'wp_head', 'fb_add_og_protocol' );
 	}
 
 	/**
@@ -177,10 +180,10 @@ class DS_wpGrafie_Theme {
 			return;
 
 		$meta = '';
+		$meta .= sprintf( '<meta property="http://ogp.me/ns#locale" content="%s">', 'de_DE' );
+		$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
 
 		if( is_singular() ) {
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#locale" content="%s">', 'de_DE' );
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#type" content="%s">', 'article' );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#url" content="%s">', esc_url( get_permalink() ) );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#title" content="%s">', esc_attr( get_the_title() ) ) ;
@@ -205,12 +208,13 @@ class DS_wpGrafie_Theme {
 				$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', esc_url( $image[0] ) );
 				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', esc_attr( $image[1] ) );
 				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', esc_attr( $image[2] ) );
-				$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );
 
 				// Google+
 				$meta .= sprintf( '<meta itemprop="image" content="%s">',  $image[0] );
 			}
 		}
+
+		$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );
 
 		if ( ! is_singular( 'post', 'schnipsel' ) )
 			$meta .= '<link href="https://plus.google.com/101675293278434581718/" rel="publisher">';
