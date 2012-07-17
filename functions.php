@@ -178,13 +178,23 @@ class DS_wpGrafie_Theme {
 
 		if( is_singular() ) {
 			$meta = '';
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#title" content="%s">', esc_attr( get_the_title() ) ) ;
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#type" content="%s">', 'article' );
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#article:published_time" content="%s">', esc_attr( get_the_date('Y-m-d') ) );
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#url" content="%s">', esc_url( get_permalink() ) );
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
-			$meta .= sprintf( '<meta property="http://ogp.me/ns#description" content="%s">', esc_attr( get_post_meta( get_the_ID(), '_wpseo_edit_description', true ) ) );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#locale" content="%s">', 'de_DE' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#type" content="%s">', 'article' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#url" content="%s">', esc_url( get_permalink() ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#title" content="%s">', esc_attr( get_the_title() ) ) ;
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#description" content="%s">', esc_attr( get_post_meta( get_the_ID(), '_wpseo_edit_description', true ) ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns/article#published_time" content="%s">', esc_attr( get_the_date( 'c' ) ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns/article#modified_time" content="%s">', esc_attr( get_the_modified_date( 'c' ) ) );
+
+			$category = get_the_category();
+			if ( ! empty( $category[0] ) )
+				$meta .= sprintf( '<meta property="http://ogp.me/ns/article#section" content="%s">', esc_attr( $category[0]->cat_name ) );
+
+			$tags = get_the_tags();
+			if ( ! empty( $tags ) )
+				foreach ( $tags as $tag )
+					$meta .= sprintf( '<meta property="http://ogp.me/ns/article#tag" content="%s">', esc_attr( $tag->name ) );
 
 			if ( has_post_thumbnail() ) {
 				$image = wp_get_attachment_image_src(
