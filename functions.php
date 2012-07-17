@@ -59,7 +59,7 @@ class DS_wpGrafie_Theme {
 		add_action( 'after_setup_theme', array( __CLASS__, 'init_actions' ) );
 
 		// Remove some actions
-		add_action( 'after_setup_theme', array( __CLASS__, 'remove_actions' ) );
+		add_action( 'init', array( __CLASS__, 'remove_actions' ), 9999 );
 
 		// Register menus
 		add_action( 'after_setup_theme', array( __CLASS__, 'init_menus' ) );
@@ -132,6 +132,9 @@ class DS_wpGrafie_Theme {
 
 		// Facebook
 		remove_action( 'wp_head', 'fb_add_og_protocol' );
+		remove_action( 'wp_footer', 'fb_root' );
+		remove_action( 'wp_head', 'fb_js_sdk_setup' );
+		remove_action( 'wp_enqueue_scripts', 'fb_style' );
 	}
 
 	/**
