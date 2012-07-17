@@ -207,7 +207,7 @@ class DS_wpGrafie_Theme {
 				$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );
 
 				// Google+
-				$meta .= sprintf( '<link rel="image_src" href="%s">',  $image[0] );
+				$meta .= sprintf( '<link rel="image" href="%s">',  $image[0] );
 			}
 
 
