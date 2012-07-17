@@ -176,8 +176,9 @@ class DS_wpGrafie_Theme {
 		if ( is_feed() or is_trackback() )
 			return;
 
+		$meta = '';
+
 		if( is_singular() ) {
-			$meta = '';
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#locale" content="%s">', 'de_DE' );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#site_name" content="%s">', 'wpGrafie.de' );
 			$meta .= sprintf( '<meta property="http://ogp.me/ns#type" content="%s">', 'article' );
@@ -209,11 +210,12 @@ class DS_wpGrafie_Theme {
 				// Google+
 				$meta .= sprintf( '<meta itemprop="image" content="%s">',  $image[0] );
 			}
-
-
-
-			echo $meta;
 		}
+
+		if ( ! is_singular( 'post', 'schnipsel' ) )
+			$meta .= '<link href="https://plus.google.com/101675293278434581718/" rel="publisher">';
+
+		echo $meta;
 	}
 
 	public static function remove_hentry_microformat( $classes ) {
