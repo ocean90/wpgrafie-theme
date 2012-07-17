@@ -16,7 +16,7 @@ class DS_wpGrafie_Theme_Script_Styles extends DS_wpGrafie_Theme {
 	 *
 	 * @var string
 	 */
-	private static $style_version = '0.3.7';
+	private static $style_version = '0.3.8';
 
 	/**
 	 * Initialize scripts.
@@ -28,7 +28,7 @@ class DS_wpGrafie_Theme_Script_Styles extends DS_wpGrafie_Theme {
 	public static function init_scripts() {
 		global $post;
 
-		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
+		$dev = self::$dev ? '' : '.min';
 
 		wp_register_script(
 			self::$themeslug ,
@@ -57,7 +57,7 @@ class DS_wpGrafie_Theme_Script_Styles extends DS_wpGrafie_Theme {
 	 * @return void
 	 */
 	public static function init_styles() {
-		$dev = self::$dev || is_user_logged_in() ? '' : '.min';
+		$dev = self::$dev ? '' : '.min';
 
 		wp_register_style(
 			self::$themeslug . '-webfont',

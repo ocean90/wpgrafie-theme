@@ -29,7 +29,7 @@ function ds_the_date( $d ) {
 	<img width="960" height="192" src="<?php echo get_stylesheet_directory_uri() ?>/img/banner/archiv.png" />
 </div>
 <div class="row top-desc" id="schnipsel-top-desc">
-	<p>Alle Artikel und Codeschnipsel nach Jahr und Monat aufgelistet. Viel Spaß beim stöbern!</p>
+	<p>Alle Artikel und Codeschnipsel nach Jahr und Monat aufgelistet. Viel Spaß beim Stöbern!</p>
 </div>
 <div id="archive-page" class="row">
 <?php
@@ -60,9 +60,11 @@ while (have_posts()) :
 		);
 	}
 
+	$badge = 'schnipsel' == get_post_type() ? '<span class="archive-badge">Schnipsel</span>' : '';
+
 	?>
 
-		<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><?php echo $badge; ?></li>
 
 	<?php
 

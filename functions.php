@@ -213,8 +213,17 @@ class DS_wpGrafie_Theme {
 				$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', esc_attr( $image[2] ) );
 
 				// Google+
-				$meta .= sprintf( '<meta itemprop="image" content="%s">',  $image[0] );
+				$meta .= sprintf( '<meta itemprop="image" content="%s">', esc_url( $image[0] ) ) ;
 			}
+		}
+
+		if ( ! has_post_thumbnail() ) {
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#image" content="%s">', esc_url( get_stylesheet_directory_uri() . '/img/wpgrafie-logo.png' ) );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#image:width" content="%s">', '200' );
+			$meta .= sprintf( '<meta property="http://ogp.me/ns#image:height" content="%s">', '200' );
+
+			// Google+
+			$meta .= sprintf( '<meta itemprop="image" content="%s">',  esc_url( get_stylesheet_directory_uri() . '/img/wpgrafie-logo.png' ) );
 		}
 
 		$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );

@@ -345,8 +345,10 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		if ( empty( $atts['gist'] ) && empty( $content ) )
 			return false;
 
+		$meta = '';
 		if ( ! empty( $atts['gist'] ) ) {
 			$gist_files = get_post_meta( $post->ID, '_gist_data', true );
+			$gist_id = get_post_meta( $post->ID, '_gist_id', true );
 
 			if ( empty( $gist_files ) )
 				return false;
@@ -355,6 +357,11 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 			$filename = $atts['gist'];
 			$code = $gist_file['content'];
 			$language = $gist_file['language'];
+			$meta = sprintf(
+				'<figcaption class="gist-meta">%s / %s</figcaption>',
+				'<a target="_blank" href="' . esc_url( $gist_file['raw_url'] ) . '" title="Ohne Syntax-Highlight">RAW</a>',
+				'<a target="_blank" href="' . esc_url( 'https://gist.github.com/' . $gist_id . '#file_' . str_replace( '-', '_', $atts['gist'] ) ) . '">github<span class="dot">:</span><span class="gist">gist</span></a>'
+			);
 		} else {
 			$code = $content;
 			$filename = md5( $code );
@@ -365,7 +372,15 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 
 		$pygmentized_code = self::pygmentize( $filename, $code, $language, $options );
 
-		return $pygmentized_code;
+		if ( empty( $pygmentized_code ) )
+			return false;
+
+		return sprintf(
+			'<figure class="code-block">%s%s%s</figure>',
+			$meta,
+			$pygmentized_code,
+			$meta
+		);
 	}
 
 	public function gist_js() {
