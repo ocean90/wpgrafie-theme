@@ -294,7 +294,7 @@ class DS_wpGrafie_Theme {
 	 * @return [type]        [description]
 	 */
 	public static function search_query( $query ) {
-		if ( ! $query->is_search() )
+		if ( ! $query->is_search() || is_admin() )
 			return $query;
 
 		$query->set( 'post_type', array( 'post', 'schnipsel' ) );
