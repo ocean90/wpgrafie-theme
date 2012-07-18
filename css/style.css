@@ -168,6 +168,7 @@ code {
  */
 a {
   color: #548bd0;
+  padding-bottom: 0.125rem;
   border-bottom: 1px solid #c4c4c4;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -1144,7 +1145,7 @@ a:hover {
 }
 
 #article blockquote {
-  margin:  1.563rem 0;
+  margin:  3.125rem 0;
   font-style: italic;
   color: #5e5e5e;
   border-left: 0.188rem solid #132945;
