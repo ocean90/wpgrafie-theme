@@ -631,7 +631,7 @@ a:hover {
 }
 
 // Article blockqoutes
-#article blockquote {
+blockquote {
 	margin: rem( 50px 0 );
 	font-style: italic;
 	color: lighten($grey-color, 10%);
@@ -639,11 +639,11 @@ a:hover {
 	padding: rem( 0 20px );
 }
 
-#article blockquote cite:before {
+blockquote cite:before {
     content: '\2014 \00A0';
 }
 
-#article blockquote cite {
+blockquote cite {
 	color: $grey-color;
 	font-style: normal;
 }

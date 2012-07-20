@@ -1144,7 +1144,7 @@ a:hover {
   color: #2b2b2b;
 }
 
-#article blockquote {
+blockquote {
   margin:  3.125rem 0;
   font-style: italic;
   color: #5e5e5e;
@@ -1152,11 +1152,11 @@ a:hover {
   padding:  0 1.25rem;
 }
 
-#article blockquote cite:before {
+blockquote cite:before {
   content: '\2014 \00A0';
 }
 
-#article blockquote cite {
+blockquote cite {
   color: #444444;
   font-style: normal;
 }
