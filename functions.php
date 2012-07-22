@@ -128,7 +128,7 @@ class DS_wpGrafie_Theme {
 		remove_action( 'wp_head',	'noindex',							1		);
 		remove_action( 'wp_head',	'wp_generator'								);
 		remove_action( 'wp_head',	'wp_shortlink_wp_head',				10, 0	);
-	//	remove_action( 'wp_head',	'rel_canonical'								);
+		remove_action( 'wp_head',	'rel_canonical'								);
 
 		// Facebook
 		remove_action( 'wp_head', 'fb_add_og_protocol' );
