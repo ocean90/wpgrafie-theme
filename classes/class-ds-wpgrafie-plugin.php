@@ -8,6 +8,10 @@ class DS_wpGrafie_Plugin extends DS_wpGrafie_Theme {
 	public function __construct() {
 
 		$this->plugin_slug = $this->get_plugin_slug();
+
+		if ( empty( $this->plugin_slug ) )
+			return false;
+
 		$this->cache_key = $this->get_cache_key();
 		$this->plugin_raw_data = $this->get_plugin_data();
 
@@ -94,10 +98,11 @@ class DS_wpGrafie_Plugin extends DS_wpGrafie_Theme {
 				'child_of' => get_queried_object()->ID
 			) );
 
-			return sprintf(
-				'<a class="switch-plugin-desc" href="%s">Switch to the English description.</a>',
-				esc_url( get_permalink( $child[0]->ID ) )
-			);
+			if ( ! empty( $child ) )
+				return sprintf(
+					'<a class="switch-plugin-desc" href="%s">Switch to the English description.</a>',
+					esc_url( get_permalink( $child[0]->ID ) )
+				);
 		}
 	}
 
