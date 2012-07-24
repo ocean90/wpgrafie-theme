@@ -4,6 +4,27 @@
  	margin: rem( 0 -8px 0 -6px );
  	padding: rem( 0 8px 0 6px );
 }
+/* 	position: relative;
+ 	z-index: 2;
+}
+
+.hll:before, .hll:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	background: #ffffcc;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.hll:before {
+	right: 100%;
+}
+
+.hll:after {
+	left: rem(6px);
+}*/
 
 //.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #eee8d5; color: #586e75 }

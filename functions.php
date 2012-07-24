@@ -230,7 +230,7 @@ class DS_wpGrafie_Theme {
 		$meta .= sprintf( '<meta property="http://ogp.me/ns/fb#app_id" content="%s">', '177681565672418' );
 
 		if ( ! is_singular( 'post', 'schnipsel' ) )
-			$meta .= '<link href="https://plus.google.com/101675293278434581718/?rel=publisher">';
+			$meta .= '<link rel="publisher" href="https://plus.google.com/101675293278434581718/">';
 
 		echo $meta;
 	}

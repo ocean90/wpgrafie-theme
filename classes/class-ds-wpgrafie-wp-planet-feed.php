@@ -55,7 +55,6 @@ class DS_wpGrafie_WP_Planet_Feed extends DS_wpGrafie_Theme {
 			return;
 
 		$query->set( 'post_type', array( 'post', 'schnipsel' ) );
-		$query->set( 'posts_per_page', 1 );
 		$query->set( 'meta_key', 'ds-show-in-wpd-planet-feed' );
 	}
 
