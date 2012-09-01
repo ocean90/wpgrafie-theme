@@ -130,7 +130,11 @@ img {
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 320px) {
+	body, input, textarea {
+		font-size: rem(20px);
+	}
+
 	#index-last-posts{
 		margin-top: rem( 20px );
 	}

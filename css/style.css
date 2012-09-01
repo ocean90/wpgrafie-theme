@@ -2292,7 +2292,11 @@ img {
     padding: 0.313rem;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 320px) {
+  body, input, textarea {
+    font-size: 1.25rem;
+  }
+
   #index-last-posts {
     margin-top: 1.25rem;
   }
