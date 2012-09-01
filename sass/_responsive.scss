@@ -130,9 +130,9 @@ img {
 	}
 }
 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
 	body, input, textarea {
-		font-size: rem(20px);
+		font-size: rem(18px);
 	}
 
 	#index-last-posts{
@@ -140,7 +140,7 @@ img {
 	}
 
 	#entry {
-		padding-top: rem( 10px );
+		padding-top: rem( 20px );
 	}
 
 	#page-navigation {
@@ -156,6 +156,22 @@ img {
 	#breadcrumb-navigation,
 	#social-row  {
 		display: none;
+	}
+
+	#page-navigation a,
+	#page-navigation a:hover,
+	#page-navigation a:focus,
+	#page-navigation .current-menu-item a {
+		padding: rem( 6px 0 6px px);
+	}
+
+	#page-navigation li {
+		width: 100%;
+		font-size: rem( 18px );
+	}
+
+	#page-navigation li:nth-child(odd) {
+		border-right: none;
 	}
 
 	a#pull-navi {

@@ -546,7 +546,7 @@ a:hover {
 a#pull-navi {
   display: none;
   background: #132945;
-  font-size: 1.25rem;
+  font-size: 1.563rem;
 }
 
 a#pull-navi:after {
@@ -2292,9 +2292,9 @@ img {
     padding: 0.313rem;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 400px) {
   body, input, textarea {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   #index-last-posts {
@@ -2302,7 +2302,7 @@ img {
   }
 
   #entry {
-    padding-top: 0.625rem;
+    padding-top: 1.25rem;
   }
 
   #page-navigation {
@@ -2318,6 +2318,22 @@ img {
   #breadcrumb-navigation,
   #social-row {
     display: none;
+  }
+
+  #page-navigation a,
+  #page-navigation a:hover,
+  #page-navigation a:focus,
+  #page-navigation .current-menu-item a {
+    padding:  0.375rem 0 0.375rem px;
+  }
+
+  #page-navigation li {
+    width: 100%;
+    font-size: 1.125rem;
+  }
+
+  #page-navigation li:nth-child(odd) {
+    border-right: none;
   }
 
   a#pull-navi {
