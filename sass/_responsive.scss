@@ -29,7 +29,8 @@ img {
 	#social-row .span9,
 	#comments-section .span8,
 	#article-sidebar,
-	#index-last-posts {
+	#index-last-posts,
+	#schnipsel-posts {
 		width: 100%;
 	}
 
@@ -44,7 +45,11 @@ img {
 	#about-me,
 	#index-last-posts .section-title,
 	#index-sidebar,
-	#sitemap { // Footer sitemap widget
+	#sitemap, // Footer sitemap widget
+	#schnipsel-sidebar,
+	#schnipsel-top-desc,
+	#schnipsel-top-img,
+	#schnipsel-posts .section-title {
 		display: none;
 	}
 
@@ -162,7 +167,7 @@ img {
 	#page-navigation a:hover,
 	#page-navigation a:focus,
 	#page-navigation .current-menu-item a {
-		padding: rem( 6px 0 6px px);
+		padding: rem( 6px 0 6px 20px);
 	}
 
 	#page-navigation li {
