@@ -419,8 +419,6 @@ class DS_wpGrafie_Theme {
 		$items .=
 			'<li id="menu-item-feed" class="menu-item menu-item-feed"><a data-icon="r" class="icon" href="/feed/">Feed</a></li>';
 
-
-
 		return $items;
 	}
 
