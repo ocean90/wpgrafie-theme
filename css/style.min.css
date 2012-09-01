@@ -122,6 +122,6 @@ li.archive-year{position:static}#about-me,#index-last-posts .section-title,#inde
 }@media(max-width:600px){#logo{width:25rem;height:4.375rem}#search{width:100%;margin:0}#all-terms{display:none}}@media(max-width:550px){#page-navigation{margin:0;float:left;width:100%;background:#132945;padding:0}
 #page-navigation ul{float:none}#page-navigation a,#page-navigation a:hover,#page-navigation a:focus,#page-navigation .current-menu-item a{text-shadow:.063rem .063rem 0 #111;color:#f2f3f2;padding:.188rem 0 .188rem 1.25rem;border:0;width:100%}
 #page-navigation li{width:50%;float:left;position:relative;margin:0;border-bottom:1px solid #f2f3f2}#page-navigation li:nth-child(odd){border-right:1px solid #f2f3f2}
-#page-navigation li:hover{background:#193559}#page-navigation li.menu-item-feed{display:none}}@media(max-width:480px){.span6.list-post-small{width:100%}
+#page-navigation li:hover{background:#193559}#page-navigation li.menu-item-feed{display:none}}@media(max-width:480px){.span6.list-post-small{width:100%;margin-left:0}
 .list-post-small .more{font-size:.875rem;padding:.313rem}}@media(max-width:400px){#index-last-posts{margin-top:1.25rem}#entry{padding-top:.625rem}#page-navigation{background:#193559}
 #page-navigation li:hover{background:#1c3c65}#page-navigation ul,#banner,#breadcrumb-navigation,#social-row{display:none}a#pull-navi{display:block}}
