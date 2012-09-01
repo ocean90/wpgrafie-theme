@@ -75,9 +75,15 @@ img {
 
 @media (max-width: 550px) {
 	#page-navigation {
+		margin: 0;
+		float: left;
 		width: 100%;
 		background: $blue-color;
 		padding: 0;
+	}
+
+	#page-navigation ul {
+		float: none;
 	}
 
 	#page-navigation a,
@@ -113,6 +119,17 @@ img {
 }
 
 @media (max-width: 480px) {
+	.span6.list-post-small {
+		width: 100%;
+	}
+
+	.list-post-small .more {
+		font-size: rem( 14px );
+		padding: rem( 5px );
+	}
+}
+
+@media (max-width: 400px) {
 	#index-last-posts{
 		margin-top: rem( 20px );
 	}
@@ -136,25 +153,7 @@ img {
 		display: none;
 	}
 
-	#page-navigation a#pull-navi {
+	a#pull-navi {
 		display: block;
-		background: $blue-color;
-		font-size: rem( 20px );
-	}
-
-	a#pull-navi:after {
-		font-family: 'wpGrafie';
-		content: '#';
-		position: absolute;
-		right: rem( 20px );
-	}
-
-	.span6.list-post-small {
-		width: 100%;
-	}
-
-	.list-post-small .more {
-		font-size: rem( 14px );
-		padding: rem( 5px );
 	}
 }

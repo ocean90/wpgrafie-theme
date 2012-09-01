@@ -118,7 +118,7 @@ a:hover {
 /**
  * Page Navigation
  */
-#page-navigation {
+#page-navigation ul {
 	float: right;
 	position: relative;
 	font-size: rem( 15px );
@@ -154,6 +154,15 @@ a:hover {
 
 a#pull-navi {
 	display: none;
+	background: $blue-color;
+	font-size: rem( 20px );
+}
+
+a#pull-navi:after {
+	font-family: 'wpGrafie';
+	content: '#';
+	position: absolute;
+	right: rem( 20px );
 }
 
 #page-navigation li.menu-item-feed {

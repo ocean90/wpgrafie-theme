@@ -506,7 +506,7 @@ a:hover {
 /**
  * Page Navigation
  */
-#page-navigation {
+#page-navigation ul {
   float: right;
   position: relative;
   font-size: 0.938rem;
@@ -545,6 +545,15 @@ a:hover {
 
 a#pull-navi {
   display: none;
+  background: #132945;
+  font-size: 1.25rem;
+}
+
+a#pull-navi:after {
+  font-family: 'wpGrafie';
+  content: '#';
+  position: absolute;
+  right: 1.25rem;
 }
 
 #page-navigation li.menu-item-feed a {
@@ -2230,9 +2239,15 @@ img {
 }
 @media (max-width: 550px) {
   #page-navigation {
+    margin: 0;
+    float: left;
     width: 100%;
     background: #132945;
     padding: 0;
+  }
+
+  #page-navigation ul {
+    float: none;
   }
 
   #page-navigation a,
@@ -2267,6 +2282,16 @@ img {
   }
 }
 @media (max-width: 480px) {
+  .span6.list-post-small {
+    width: 100%;
+  }
+
+  .list-post-small .more {
+    font-size: 0.875rem;
+    padding: 0.313rem;
+  }
+}
+@media (max-width: 400px) {
   #index-last-posts {
     margin-top: 1.25rem;
   }
@@ -2290,25 +2315,7 @@ img {
     display: none;
   }
 
-  #page-navigation a#pull-navi {
+  a#pull-navi {
     display: block;
-    background: #132945;
-    font-size: 1.25rem;
-  }
-
-  a#pull-navi:after {
-    font-family: 'wpGrafie';
-    content: '#';
-    position: absolute;
-    right: 1.25rem;
-  }
-
-  .span6.list-post-small {
-    width: 100%;
-  }
-
-  .list-post-small .more {
-    font-size: 0.875rem;
-    padding: 0.313rem;
   }
 }
