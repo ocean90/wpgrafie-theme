@@ -21,5 +21,4 @@
 			</div>
 		</div>
 	</div>
-	<div class="span3 spanempty"></div>
 </div>

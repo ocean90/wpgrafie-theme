@@ -17,8 +17,6 @@
 				?>
 			</ol>
 		</div>
-		<div class="span4 spanempty">
-		</div>
 	</div>
 	<?php
 	endif;
@@ -43,8 +41,6 @@
 
 			) );
 			?>
-		</div>
-		<div class="span3 spanempty">
 		</div>
 	</div>
 </section>

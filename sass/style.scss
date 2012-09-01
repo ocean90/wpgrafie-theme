@@ -118,40 +118,45 @@ a:hover {
 /**
  * Page Navigation
  */
-#page-navigation #menu-oben {
+#page-navigation {
 	float: right;
 	position: relative;
+	font-size: rem( 15px );
 }
 
-#page-navigation #menu-oben li {
-	display: inline-block;
-	font-size: rem( 15px );
+#page-navigation li {
+	display: inline;
+	float: left;
 	margin: rem( 0 20px 0 0 );
 }
 
-#page-navigation #menu-oben li a {
+#page-navigation a {
 	@include transition( none );
 	display: inline-block;
 	padding-top: rem( 5px );
 }
 
-#page-navigation #menu-oben li:last-child {
+#page-navigation li:last-child {
 	margin: 0;
 }
 
-#page-navigation #menu-oben li a:hover,
-#page-navigation #menu-oben li a:focus,
-#page-navigation #menu-oben .current-menu-item a {
+#page-navigation a:hover,
+#page-navigation a:focus,
+#page-navigation .current-menu-item a {
 	border-top: rem( 5px solid $blue-color );
 	padding-top: 0;
 }
 
-#page-navigation #menu-oben li a {
+#page-navigation a {
 	color: $grey-color;
 	border: 0;
 }
 
-#page-navigation #menu-oben li.menu-item-feed {
+a#pull-navi {
+	display: none;
+}
+
+#page-navigation li.menu-item-feed {
 	a {
 		color: $orange-color;
 	}

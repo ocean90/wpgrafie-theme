@@ -46,6 +46,7 @@
 	$( 'body' ).removeClass( 'no-js' );
 
 	$( 'a[href*=#]' ).click( function( e ) {
+		if ( ! this.hash ) return;
 		$( 'body' ).animate( { scrollTop: $(this.hash).offset().top }, 350 );
 		e.preventDefault();
 	} );
@@ -78,4 +79,16 @@
 		_gat._anonymizeIp();
 		t._trackPageview();
 	} );
+
+
+	var pull 		= $('#pull-navi');
+		menu 		= $('#page-navigation ul');
+		menuHeight	= menu.height();
+
+	$(pull).on('click', function(e) {
+		e.preventDefault();
+		menu.slideToggle();
+	});
+
+
 } )( jQuery );

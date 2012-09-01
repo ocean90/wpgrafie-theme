@@ -49,5 +49,4 @@ wp_reset_postdata();
 			<?php echo $output; ?>
 		</div>
 	</div>
-	<div class="span3 spanempty"></div>
 </div>

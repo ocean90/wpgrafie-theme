@@ -23,12 +23,17 @@
 	</header>
 	<div id="content-container">
 		<?php
-		wp_nav_menu( array(
-			'theme_location' => 'menu_top',
-			'container' => 'nav',
-			'container_id' => 'page-navigation',
-			'container_class' => 'width-960'
-		) );
+		echo str_replace(
+			'</nav>',
+			'<a href="#" id="pull-navi">wpGrafie.de</a></nav>',
+			wp_nav_menu( array(
+				'theme_location'  => 'menu_top',
+				'container'       => 'nav',
+				'container_id'    => 'page-navigation',
+				'container_class' => 'width-960',
+				'echo'            => false
+			) )
+		);
 
 		DS_wpGrafie_Theme::breadcrumb();
 		?>

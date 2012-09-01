@@ -1,3 +1,6 @@
 .DS_Store
 .sass-cache/
 .ext/
+*.sublime-workspace
+
+*.sublime-workspace
