@@ -24,13 +24,18 @@ img {
 	height: 100%;
 }
 
+.row .twitter-tweet-rendered {
+    max-width: 100% !important;
+}
+
 @media (max-width: 768px) {
 	#article-content,
 	#social-row .span9,
 	#comments-section .span8,
 	#article-sidebar,
 	#index-last-posts,
-	#schnipsel-posts {
+	#schnipsel-posts,
+	#related-posts-row .span9 {
 		width: 100%;
 	}
 
@@ -140,6 +145,10 @@ img {
 		font-size: rem(18px);
 	}
 
+	body {
+		background: #fff;
+	}
+
 	#index-last-posts{
 		margin-top: rem( 20px );
 	}
@@ -159,7 +168,8 @@ img {
 	#page-navigation ul,
 	#banner,
 	#breadcrumb-navigation,
-	#social-row  {
+	#social-row,
+	#related-posts-row {
 		display: none;
 	}
 

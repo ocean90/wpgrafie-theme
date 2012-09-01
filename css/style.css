@@ -2190,13 +2190,18 @@ img {
   height: 100%;
 }
 
+.row .twitter-tweet-rendered {
+  max-width: 100% !important;
+}
+
 @media (max-width: 768px) {
   #article-content,
   #social-row .span9,
   #comments-section .span8,
   #article-sidebar,
   #index-last-posts,
-  #schnipsel-posts {
+  #schnipsel-posts,
+  #related-posts-row .span9 {
     width: 100%;
   }
 
@@ -2302,6 +2307,10 @@ img {
     font-size: 1.125rem;
   }
 
+  body {
+    background: #fff;
+  }
+
   #index-last-posts {
     margin-top: 1.25rem;
   }
@@ -2321,7 +2330,8 @@ img {
   #page-navigation ul,
   #banner,
   #breadcrumb-navigation,
-  #social-row {
+  #social-row,
+  #related-posts-row {
     display: none;
   }
 
