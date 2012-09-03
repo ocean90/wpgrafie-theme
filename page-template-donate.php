@@ -20,7 +20,7 @@ while (have_posts()) :
 				<div class="row thank-row ">
 					<div class="span6">
 						<div id="uberspace" class="thank-box uberspace">
-							<p>Du bist auch Ubernaut? Dann könntest du etwas Guthaben mit mir teilen.<br/>
+							<p>Du bist auch Ubernaut? Dann kannst du etwas Guthaben mit mir teilen.<br/>
 								Mein Benutzername: <strong>wpplugin</strong></p>
 							<a class="no-link-style" href="https://uberspace.de/dashboard/accounting">Guthaben umbuchen</a>
 							<small><a class="no-link-style" href="https://uberspace.de/dokuwiki/start:payment">Kein Ubernaut? Alternative.</a></small>
@@ -36,7 +36,7 @@ while (have_posts()) :
 				<div class="row thank-row">
 					<div class="span6">
 						<div id="amazon" class="thank-box amazon">
-							<p class="grey">Wie viel Wünsche hab ich frei? Mein Wunschzettel ist lang!</p>
+							<p class="grey">Wie viele Wünsche hab ich frei? Mein Wunschzettel ist lang!</p>
 							<a class="no-link-style" href="http://www.amazon.de/registry/wishlist/ZO8E0WLQQKVW">Amazon Wunschzettel</a>
 						</div>
 					</div>
