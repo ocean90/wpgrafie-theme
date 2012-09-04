@@ -300,11 +300,23 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		$tmp_file = wp_tempnam( $filename );
 		$tmp_f_file = wp_tempnam( 'pygmentized_' . $filename );
 
+		$language = strtolower( $language );
+
+		$match = false;
+		if ( 'php' ==  $language ) {
+			$match = explode( "\n", $code, 2);
+			if ( '<?php' != $match[0]) {
+				$code = "<?php\n" . $code;
+				$match = true;
+			} else {
+				$match = false;
+			}
+		}
+
 		$file_handle = fopen( $tmp_file, "w" );
 		fwrite( $file_handle, $code );
 		fclose( $file_handle );
 
-		$language = strtolower( $language );
 		$options = $options ? '-O ' . $options : '';
 
 		$command = "pygmentize -f html $options -l $language -o $tmp_f_file $tmp_file";
@@ -317,7 +329,12 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 		unlink( $tmp_file );
 		unlink( $tmp_f_file );
 
+		if ( $match && ! strpos( $options, 'linenos=table' ) ) {
+			$pygmentized = preg_replace('/<span class=\"cp\">\&lt;\?php<\/span>\s+/s', '', $pygmentized, 1);
+		}
+
 		return $pygmentized;
+
 	}
 
 	// http://wpforce.com/prevent-wpautop-filter-shortcode/
@@ -358,8 +375,9 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 			$code = $gist_file['content'];
 			$language = $gist_file['language'];
 			$meta = sprintf(
-				'<figcaption class="gist-meta">%s / %s</figcaption>',
-				'<a target="_blank" href="' . esc_url( $gist_file['raw_url'] ) . '" title="Ohne Syntax-Highlight">RAW</a>',
+				'<figcaption class="gist-meta">%s / %s / %s</figcaption>',
+				$language,
+				'<a target="_blank" href="' . esc_url( $gist_file['raw_url'] ) . '" title="Ohne Syntax-Highlight">Text</a>',
 				'<a target="_blank" href="' . esc_url( 'https://gist.github.com/' . $gist_id . '#file_' . str_replace( '-', '_', $atts['gist'] ) ) . '">github<span class="dot">:</span><span class="gist">gist</span></a>'
 			);
 		} else {
