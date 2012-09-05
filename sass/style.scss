@@ -586,6 +586,7 @@ a#pull-navi:after {
 }*/
 
 .code-block {
+	clear: both;
 	margin: rem( 25px 0 );
 }
 
@@ -881,7 +882,7 @@ blockquote cite {
  * Share boxes
  */
 #social-row {
-	margin-top: rem( 40px );
+	margin-top: rem( 30px );
 }
 
 .share-box {
@@ -957,6 +958,22 @@ blockquote cite {
 /**
  * Thank boxes
  */
+
+.thanks-link,
+.thanks-link:hover {
+	float: right;
+	text-align: right;
+	font-weight: bold;
+	border-top: 1px dotted $grey-color;
+	padding: rem( 5px 5px 0 15px );
+}
+
+.thanks-link:before {
+	padding-right: rem( 5px );
+	color: brown;
+	font-size: rem( 18px );
+}
+
 .thank-row {
 	margin-bottom: rem( 20px );
 }

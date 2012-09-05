@@ -26,6 +26,11 @@ while (have_posts()) :
 			</aside>
 		</div>
 		<footer id="article-footer">
+			<div class="row">
+				<div class="span9">
+					<a data-icon="*" class="icon no-link-style thanks-link" href="/danke-sagen/">Danke sagen</a>
+				</div>
+			</div>
 			<?php
 			get_template_part( 'social' );
 			get_template_part( 'related' );

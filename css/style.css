@@ -958,6 +958,7 @@ a#pull-navi:after {
 	color: #019a01;
 }*/
 .code-block {
+  clear: both;
   margin:  1.5625rem 0;
 }
 
@@ -1614,7 +1615,7 @@ blockquote cite {
  * Share boxes
  */
 #social-row {
-  margin-top: 2.5rem;
+  margin-top: 1.875rem;
 }
 
 .share-box {
@@ -1675,6 +1676,21 @@ blockquote cite {
 /**
  * Thank boxes
  */
+.thanks-link,
+.thanks-link:hover {
+  float: right;
+  text-align: right;
+  font-weight: bold;
+  border-top: 1px dotted #444444;
+  padding:  0.3125rem 0.3125rem 0 0.9375rem;
+}
+
+.thanks-link:before {
+  padding-right: 0.3125rem;
+  color: brown;
+  font-size: 1.125rem;
+}
+
 .thank-row {
   margin-bottom: 1.25rem;
 }
