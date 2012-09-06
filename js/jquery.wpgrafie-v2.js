@@ -81,7 +81,7 @@ var _gaq = _gaq || [];
 		_gaq.push( ['_trackPageview'] );
 
 		$('.thanks-link').click( function() {
-			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen'] );
+			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen', window.location.pathname ] );
 		});
 		$('#menu-item-feed').click( function() {
 			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Feed', window.location.pathname ] );
