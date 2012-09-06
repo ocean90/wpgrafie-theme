@@ -42,6 +42,7 @@
 /*
  * Custom JS - All front-end jQuery
  */
+var _gaq = _gaq || [];
 ( function( $ ) {
 	$( 'body' ).removeClass( 'no-js' );
 
@@ -75,9 +76,16 @@
 
 	// Google Analytics
 	$.getScript( '//www.google-analytics.com/ga.js', function() {
-		var t = _gat._createTracker( 'UA-5436438-7' );
-		_gat._anonymizeIp();
-		t._trackPageview();
+		_gaq.push( ['_setAccount', 'UA-5436438-7'] );
+		_gaq.push( ['_gat._anonymizeIp'] );
+		_gaq.push( ['_trackPageview'] );
+
+		$('.thanks-link').click( function() {
+			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen'] );
+		});
+		$('#menu-item-feed').click( function() {
+			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Feed', window.location.pathname ] );
+		});
 	} );
 
 	// http://www.hongkiat.com/blog/responsive-web-nav/
