@@ -81,10 +81,10 @@ var _gaq = _gaq || [];
 		_gaq.push( ['_trackPageview'] );
 
 		$('.thanks-link').click( function() {
-			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen', window.location.pathname ] );
+			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen' ] );
 		});
 		$('#menu-item-feed').click( function() {
-			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Feed', window.location.pathname ] );
+			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Feed' ] );
 		});
 	} );
 
