@@ -80,11 +80,17 @@ var _gaq = _gaq || [];
 		_gaq.push( ['_gat._anonymizeIp'] );
 		_gaq.push( ['_trackPageview'] );
 
-		$('.thanks-link').click( function() {
+		$('.thanks-link').click( function(e) {
+			e.preventDefault();
+			var href = $(this).attr('href');
 			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Danke sagen' ] );
+			setTimeout(function() { location.href = href; }, 200);
 		});
-		$('#menu-item-feed').click( function() {
+		$('#menu-item-feed').click( function(e) {
+			e.preventDefault();
+			var href = $('a', this).attr('href');
 			_gaq.push( ['_trackEvent', 'Links', 'Klick', 'Feed' ] );
+			setTimeout(function() { location.href = href; }, 200);
 		});
 	} );
 
