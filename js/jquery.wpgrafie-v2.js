@@ -78,6 +78,7 @@ var _gaq = _gaq || [];
 	$.getScript( '//www.google-analytics.com/ga.js', function() {
 		_gaq.push( ['_setAccount', 'UA-5436438-7'] );
 		_gaq.push( ['_gat._anonymizeIp'] );
+		_gaq.push( ['_setSiteSpeedSampleRate', 100] );
 		_gaq.push( ['_trackPageview'] );
 
 		$('.thanks-link').click( function(e) {
