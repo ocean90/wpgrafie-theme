@@ -3,8 +3,8 @@ get_header();
 ?>
 <div id="about-me" class="row">
 	<div class="span6 about-text">
-		<p class="first">WordPress Core Contributor,</p>
-		<p class="second">Plugin Entwickler und ein bisschen mehr.</p>
+		<p class="first">WordPress Contributing Developer,</p>
+		<p class="second">(Web) Developer und ein bisschen mehr.</p>
 		<p class="third">Mein Name ist Dominik, ich liebe <span class="word">Word</span><span class="press">Press</span><br/> und teile gerne mein Wissen darüber.</p>
 	</div>
 	<div class="span6">
