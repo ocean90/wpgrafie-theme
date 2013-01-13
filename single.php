@@ -28,7 +28,7 @@ while (have_posts()) :
 		<footer id="article-footer">
 			<div class="row">
 				<div class="span9">
-					<a data-icon="*" class="icon no-link-style thanks-link" href="/danke-sagen/">Danke sagen</a>
+					<a data-icon="*" class="icon no-link-style thanks-link" href="/danke-sagen/">Kaffee spenden</a>
 				</div>
 			</div>
 			<?php
