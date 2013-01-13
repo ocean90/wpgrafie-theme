@@ -386,6 +386,9 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 			$language = $atts['language'];
 		}
 
+		if ( empty( $code ) || empty( $filename ) || empty( $language ) )
+			return false;
+
 		$options = ! empty( $atts['options'] ) ? $atts['options'] : '';
 
 		$pygmentized_code = self::pygmentize( $filename, $code, $language, $options );
