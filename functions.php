@@ -51,7 +51,7 @@ class DS_wpGrafie_Theme {
 	 * @return void
 	 */
 	public static function init() {
-		self::$dev = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		self::$dev = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
 		spl_autoload_register( array( __CLASS__, 'autoload' ) );
 
