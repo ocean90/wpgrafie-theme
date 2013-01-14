@@ -29,7 +29,7 @@ class DS_wpGrafie_Theme {
 	 * @var array
 	 */
 	private static $classes = array(
-		// Theme releated
+		// Theme related
 		'DS_wpGrafie_Theme_Widgets',
 		'DS_wpGrafie_Comments',
 		'DS_wpGrafie_Theme_Script_Styles',
