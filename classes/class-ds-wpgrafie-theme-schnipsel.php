@@ -283,7 +283,7 @@ class DS_wpGrafie_Theme_Schnipsel extends DS_wpGrafie_Theme {
 			$gist_data[$file->filename] = array(
 				'language' => $file->language,
 				'raw_url'  => esc_url_raw( $file->raw_url ),
-				'content'  => $file->content
+				'content'  => addslashes( $file->content )
 			);
 		}
 
