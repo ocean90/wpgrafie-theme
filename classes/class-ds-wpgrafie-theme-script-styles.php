@@ -16,7 +16,7 @@ class DS_wpGrafie_Theme_Script_Styles extends DS_wpGrafie_Theme {
 	 *
 	 * @var string
 	 */
-	private static $style_version = '0.5.7';
+	private static $style_version = '0.5.8';
 
 	/**
 	 * Initialize scripts.
