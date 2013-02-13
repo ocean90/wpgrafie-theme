@@ -128,4 +128,11 @@ var _gaq = _gaq || [];
 			persHeader.hide();
 		}
 	} );
+
+	persHeader.parent().on( 'click', function( e ) {
+		if ( e.target.id != 'header-persistent' )
+			return;
+
+		$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+	} );
 } )( jQuery );
