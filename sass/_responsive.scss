@@ -35,7 +35,8 @@ img {
 	#article-sidebar,
 	#index-last-posts,
 	#schnipsel-posts,
-	#related-posts-row .span9 {
+	#related-posts-row .span9,
+	#article-footer .span9 {
 		width: 100%;
 	}
 
@@ -65,6 +66,7 @@ img {
 	#all-terms { // Breite auf span8 erweitern.
 		width: 65.95744680851064%;
 	}
+
 }
 
 @media (max-width: 600px) {

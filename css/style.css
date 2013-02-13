@@ -1425,7 +1425,6 @@ a#pull-navi:after {
 
 /* Literal.Number.Integer.Long */
 #article code {
-  white-space: nowrap;
   padding:  0 0.1875rem;
   font-size: 0.875rem;
   background: #eee8d5;
@@ -1666,6 +1665,7 @@ blockquote cite {
  */
 #social-row {
   margin-top: 1.875rem;
+  text-align: left;
 }
 
 .share-box {
@@ -1726,13 +1726,22 @@ blockquote cite {
 /**
  * Thank boxes
  */
+#article-footer {
+  text-align: center;
+}
+
 .thanks-link,
 .thanks-link:hover {
-  float: right;
-  text-align: right;
+  text-align: center;
   font-weight: bold;
-  border-top: 1px dotted #444444;
-  padding:  0.3125rem 0.3125rem 0 0.9375rem;
+  margin:  1.25rem 0;
+  padding:  0.625rem 0.9375rem;
+  display: inline-block;
+  background: #d7dbd7;
+  border:  0.0625rem solid #f2f3f2;
+  -webkit-box-shadow:  0 0.0625rem 0.1875rem #bdc2bd;
+  -moz-box-shadow:  0 0.0625rem 0.1875rem #bdc2bd;
+  box-shadow:  0 0.0625rem 0.1875rem #bdc2bd;
 }
 
 .thanks-link:before {
@@ -2379,7 +2388,8 @@ img {
   #article-sidebar,
   #index-last-posts,
   #schnipsel-posts,
-  #related-posts-row .span9 {
+  #related-posts-row .span9,
+  #article-footer .span9 {
     width: 100%;
   }
 

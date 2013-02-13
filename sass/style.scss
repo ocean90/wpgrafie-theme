@@ -692,7 +692,6 @@ a#pull-navi:after {
 @import "syntaxhighlight";
 
 #article code {
-	white-space: nowrap;
 	padding: rem( 0 3px );
 	font-size: rem( 14px );
 	background: #eee8d5;
@@ -938,6 +937,7 @@ blockquote cite {
  */
 #social-row {
 	margin-top: rem( 30px );
+	text-align: left;
 }
 
 .share-box {
@@ -1013,14 +1013,23 @@ blockquote cite {
 /**
  * Thank boxes
  */
+#article-footer {
+	text-align: center;
+}
 
 .thanks-link,
 .thanks-link:hover {
-	float: right;
-	text-align: right;
+	text-align: center;
 	font-weight: bold;
-	border-top: 1px dotted $grey-color;
-	padding: rem( 5px 5px 0 15px );
+	margin: rem( 20px 0 );
+	padding: rem( 10px 15px );
+	display: inline-block;
+	background: darken( $white-color, 10%);
+	border: rem( 1px solid $white-color );
+	@include box-shadow(
+		rem( 0 1px 3px )
+		darken( $white-color, 20%)
+	);
 }
 
 .thanks-link:before {
