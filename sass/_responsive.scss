@@ -129,6 +129,14 @@ img {
 }
 
 @media (max-width: 480px) {
+	#content-collapse {
+		top: rem( 120px );
+	}
+
+	#logo {
+		margin-top: rem( 20px );
+	}
+
 	.span6.list-post-small {
 		width: 100%;
 		margin-left: 0;
@@ -155,6 +163,10 @@ img {
 
 	#entry {
 		padding-top: rem( 20px );
+	}
+
+	#content-collapse {
+		top: 0;
 	}
 
 	#page-navigation {

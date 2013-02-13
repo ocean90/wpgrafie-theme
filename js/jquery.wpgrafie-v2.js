@@ -96,22 +96,13 @@ var _gaq = _gaq || [];
 	} );
 
 	// http://www.hongkiat.com/blog/responsive-web-nav/
-	var pull 		= $('#pull-navi');
-		menu 		= $('#page-navigation ul');
-		menuHeight	= menu.height();
+	var pull       = $('#pull-navi');
+		menu       = $('#page-navigation ul');
+		menuHeight = menu.height();
 
 	$(pull).on('click', function(e) {
 		e.preventDefault();
 		menu.slideToggle();
 	});
-
-	$(window).resize(function(){
-		var w = $(window).width();
-		if(w > 400) {
-			menu.removeAttr('style');
-		}
-	});
-
-
 
 } )( jQuery );

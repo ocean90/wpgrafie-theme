@@ -17,25 +17,27 @@
 </head>
 
 <body <?php body_class( 'no-js' ); ?>>
+	<div id="header-collapse">
+		<header id="banner" class="width-960">
+			<h1 id="logo">wpGrafie</h1>
+		</header>
+	</div>
+	<div id="content-collapse">
+		<div id="content-container">
+			<?php
+			echo str_replace(
+				'</nav>',
+				'<a href="#" id="pull-navi">wpGrafie.de</a></nav>',
+				wp_nav_menu( array(
+					'theme_location'  => 'menu_top',
+					'container'       => 'nav',
+					'container_id'    => 'page-navigation',
+					'container_class' => 'width-960',
+					'echo'            => false
+				) )
+			);
 
-	<header id="banner" class="width-960">
-		<h1 id="logo">wpGrafie</h1>
-	</header>
-	<div id="content-container">
-		<?php
-		echo str_replace(
-			'</nav>',
-			'<a href="#" id="pull-navi">wpGrafie.de</a></nav>',
-			wp_nav_menu( array(
-				'theme_location'  => 'menu_top',
-				'container'       => 'nav',
-				'container_id'    => 'page-navigation',
-				'container_class' => 'width-960',
-				'echo'            => false
-			) )
-		);
+			DS_wpGrafie_Theme::breadcrumb();
+			?>
 
-		DS_wpGrafie_Theme::breadcrumb();
-		?>
-
-		<section id="entry" class="width-960">
+			<section id="entry" class="width-960">

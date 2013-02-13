@@ -478,6 +478,21 @@ a:hover {
 	background-color: #aaa;
 }*/
 /**
+ * Collapsing Header Effect
+ */
+#header-collapse {
+  width: 100%;
+  position: fixed;
+  height: 12.5rem;
+}
+
+#content-collapse {
+  width: 100%;
+  position: relative;
+  top: 12.5rem;
+}
+
+/**
  * Header
  */
 #banner {
@@ -2424,6 +2439,14 @@ img {
   }
 }
 @media (max-width: 480px) {
+  #content-collapse {
+    top: 7.5rem;
+  }
+
+  #logo {
+    margin-top: 1.25rem;
+  }
+
   .span6.list-post-small {
     width: 100%;
     margin-left: 0;
@@ -2449,6 +2472,10 @@ img {
 
   #entry {
     padding-top: 1.25rem;
+  }
+
+  #content-collapse {
+    top: 0;
   }
 
   #page-navigation {

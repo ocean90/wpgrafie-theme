@@ -89,6 +89,22 @@ a:hover {
 @import "helper/grid";
 
 /**
+ * Collapsing Header Effect
+ */
+#header-collapse {
+	width: 100%;
+	position: fixed;
+	height: rem( 200px );
+}
+
+#content-collapse {
+	width: 100%;
+	position: relative;
+	top: rem( 200px );
+}
+
+
+/**
  * Header
  */
 #banner {
