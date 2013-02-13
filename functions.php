@@ -72,10 +72,6 @@ class DS_wpGrafie_Theme {
 
 		// Register filters
 		add_action( 'after_setup_theme', array( __CLASS__, 'init_filters' ) );
-
-
-
-		#add_action( 'pre_get_posts', array( __CLASS__, 'filter_queries' ) );
 	}
 
 	/**
@@ -161,12 +157,6 @@ class DS_wpGrafie_Theme {
 		// Replace sad HTML with HTML5
 		add_filter( 'img_caption_shortcode', array( __CLASS__, 'img_caption_shortcode' ), 10, 3 );
 	//	add_filter( 'image_send_to_editor', array( __CLASS__, 'image_send_to_editor' ),	10, 8 );
-
-		// Add some meta to categories
-	//	add_action( 'category_edit_form_fields', array( __CLASS__, 'category_banner_edit_form_field' ) );
-	//	add_action( 'category_add_form_fields', array( __CLASS__, 'category_banner_add_form_field' ) );
-	//	add_action( 'created_category', array( __CLASS__, 'save_category_banner' ) );
-	//	add_action( 'edited_category', array( __CLASS__, 'save_category_banner' ) );
 
 		// Remove p-tag around an image
 		add_filter( 'the_content', array( __CLASS__, 'unautop_for_images' ), 99 );
@@ -267,7 +257,9 @@ class DS_wpGrafie_Theme {
 	 * @return void
 	 */
 	public static function add_custom_comment_class( $classes , $c = null , $comment_id = null) {
-		if ( is_admin() ) return $classes;
+		if ( is_admin() )
+			return $classes;
+
 		$status = wp_get_comment_status( $comment_id );
 		$status ? ( $classes[] = 'comment-' . $status ) : '';
 
@@ -316,30 +308,6 @@ class DS_wpGrafie_Theme {
 		return $query;
 	}
 
-	public function created_category( $term_id ) {
-
-	}
-
-	public function category_banner_add_form_field( $term ) {
-		?>
-<div class="form-field">
-	<label for="category_banner">Banner</label>
-	<input name="category_banner" id="category_banner" type="text" value="" size="40">
-	<p class="description">Banner, der die Kategorie repräsentiert.</p>
-</div>
-		<?php
-	}
-
-	public function category_banner_edit_form_field( $term ) {
-		?>
-<tr class="form-field">
-	<th scope="row" valign="top"><label for="category_banner">Banner</label></th>
-	<td><input name="category_banner" id="category_banner" type="text" value="" size="40">
-	<p class="description">Banner, der die Kategorie repräsentiert.</p></td>
-</tr>
-		<?php
-	}
-
 	public function image_send_to_editor( $html, $id, $caption, $title, $align, $url, $size, $alt ) {
 		// Not used.
 		return '<figure>' . $html . '</figure>';
@@ -382,8 +350,6 @@ class DS_wpGrafie_Theme {
 		}
 	}
 
-
-
 	/**
 	 * Initialize custom menus.
 	 *
@@ -424,8 +390,7 @@ class DS_wpGrafie_Theme {
 
 
 	public static function breadcrumb() {
-
-		if( is_home() )
+		if ( is_home() )
 			return;
 
 		$templates = array(
@@ -456,7 +421,6 @@ class DS_wpGrafie_Theme {
 	 */
 	public static function init_post_thumbnails() {
 		add_theme_support( 'post-thumbnails' );
-
 
 		add_image_size( 'article-image-big', 960, 192, true );
 		add_image_size( 'article-image-middle', 635, 127, true );
@@ -510,17 +474,6 @@ class DS_wpGrafie_Theme {
 				$links .= ( $i == $page ) ? sprintf( '<span class="current">%d</span>', $i ) : sprintf( '<a href="%s">%d</a>', get_pagenum_link( $i ), $i );
 
 		echo $links;
-	}
-
-	function filter_queries($query) {
-		// Bail if $posts_query is not an object or of incorrect class
-		if ( !is_object( $query ) || ( 'WP_Query' != get_class( $query ) ) )
-			return;
-
-		// Bail if filters are suppressed on this query
-		if ( true == $query->get( 'suppress_filters' ) )
-			return;
-
 	}
 
 	public static function user_contactmethods( $user_contactmethods ) {
