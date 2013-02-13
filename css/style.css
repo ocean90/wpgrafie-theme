@@ -66,10 +66,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   outline: 0;
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -490,6 +486,41 @@ a:hover {
   width: 100%;
   position: relative;
   top: 12.5rem;
+  z-index: 5;
+}
+
+/**
+ * Persistent Header
+ */
+#header-persistent {
+  -webkit-box-shadow:  0 0.3125rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.8);
+  -moz-box-shadow:  0 0.3125rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.8);
+  box-shadow:  0 0.3125rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.8);
+  background: #f2f3f2;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+#header-persistent > div {
+  display: none;
+}
+
+#persistent-home-link {
+  float: left;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding-top: 0.125rem;
+}
+
+#persistent-home-link a {
+  color: #444444;
+  border: 0;
+}
+
+#pers-page-navigation {
+  clear: none;
+  padding: 0;
 }
 
 /**
@@ -521,19 +552,19 @@ a:hover {
 /**
  * Page Navigation
  */
-#page-navigation ul {
+.page-navigation ul {
   float: right;
   position: relative;
   font-size: 0.9375rem;
 }
 
-#page-navigation li {
+.page-navigation li {
   display: inline;
   float: left;
   margin:  0 1.25rem 0 0;
 }
 
-#page-navigation a {
+.page-navigation a {
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -542,18 +573,18 @@ a:hover {
   padding-top: 0.3125rem;
 }
 
-#page-navigation li:last-child {
+.page-navigation li:last-child {
   margin: 0;
 }
 
-#page-navigation a:hover,
-#page-navigation a:focus,
-#page-navigation .current-menu-item a {
+.page-navigation a:hover,
+.page-navigation a:focus,
+.page-navigation .current-menu-item a {
   border-top:  0.3125rem solid #132945;
   padding-top: 0;
 }
 
-#page-navigation a {
+.page-navigation a {
   color: #444444;
   border: 0;
 }
@@ -571,15 +602,15 @@ a#pull-navi:after {
   right: 1.25rem;
 }
 
-#page-navigation li.menu-item-feed a {
+.page-navigation li.menu-item-feed a {
   color: #f26535;
 }
-#page-navigation li.menu-item-feed a:before {
+.page-navigation li.menu-item-feed a:before {
   font-size: 0.8125rem;
   padding-right: 0.3125rem;
 }
-#page-navigation li.menu-item-feed a:hover,
-#page-navigation li.menu-item-feed a:focus {
+.page-navigation li.menu-item-feed a:hover,
+.page-navigation li.menu-item-feed a:focus {
   border-top-color: #f26535;
 }
 

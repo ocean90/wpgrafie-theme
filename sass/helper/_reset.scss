@@ -7,10 +7,6 @@
 	@include reset-focus();
 }
 
-html, body {
-	overflow-x: hidden;
-}
-
 // Firefox: Padding Fix;
 button::-moz-focus-inner,
 input::-moz-focus-inner {

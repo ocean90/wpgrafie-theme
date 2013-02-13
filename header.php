@@ -17,6 +17,7 @@
 </head>
 
 <body <?php body_class( 'no-js' ); ?>>
+	<div id="header-persistent"><div class="width-960"></div></div>
 	<div id="header-collapse">
 		<header id="banner" class="width-960">
 			<h1 id="logo">wpGrafie</h1>
@@ -32,7 +33,7 @@
 					'theme_location'  => 'menu_top',
 					'container'       => 'nav',
 					'container_id'    => 'page-navigation',
-					'container_class' => 'width-960',
+					'container_class' => 'width-960 page-navigation',
 					'echo'            => false
 				) )
 			);

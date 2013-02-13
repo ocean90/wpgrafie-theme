@@ -101,8 +101,43 @@ a:hover {
 	width: 100%;
 	position: relative;
 	top: rem( 200px );
+	z-index: 5;
 }
 
+/**
+ * Persistent Header
+ */
+#header-persistent {
+	@include box-shadow(
+		rem( 0 5px 10px -5px )
+		rgba(0, 0, 0, 0.8)
+	);
+	background: $white-color;
+	width: 100%;
+	position: fixed;
+	z-index: 10;
+}
+
+#header-persistent > div {
+	display: none;
+}
+
+#persistent-home-link {
+	float: left;
+	font-size: rem( 15px );
+	font-weight: 700;
+	padding-top: rem( 2px );
+}
+
+#persistent-home-link a {
+	color: $grey-color;
+	border: 0;
+}
+
+#pers-page-navigation {
+	clear: none;
+	padding: 0
+}
 
 /**
  * Header
@@ -134,36 +169,36 @@ a:hover {
 /**
  * Page Navigation
  */
-#page-navigation ul {
+.page-navigation ul {
 	float: right;
 	position: relative;
 	font-size: rem( 15px );
 }
 
-#page-navigation li {
+.page-navigation li {
 	display: inline;
 	float: left;
 	margin: rem( 0 20px 0 0 );
 }
 
-#page-navigation a {
+.page-navigation a {
 	@include transition( none );
 	display: inline-block;
 	padding-top: rem( 5px );
 }
 
-#page-navigation li:last-child {
+.page-navigation li:last-child {
 	margin: 0;
 }
 
-#page-navigation a:hover,
-#page-navigation a:focus,
-#page-navigation .current-menu-item a {
+.page-navigation a:hover,
+.page-navigation a:focus,
+.page-navigation .current-menu-item a {
 	border-top: rem( 5px solid $blue-color );
 	padding-top: 0;
 }
 
-#page-navigation a {
+.page-navigation a {
 	color: $grey-color;
 	border: 0;
 }
@@ -181,7 +216,7 @@ a#pull-navi:after {
 	right: rem( 20px );
 }
 
-#page-navigation li.menu-item-feed {
+.page-navigation li.menu-item-feed {
 	a {
 		color: $orange-color;
 	}

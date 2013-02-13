@@ -105,4 +105,27 @@ var _gaq = _gaq || [];
 		menu.slideToggle();
 	});
 
+	var persHeader = $( '#header-persistent > div'),
+		nav = $('#page-navigation');
+		navOffsetTop = nav.offset().top,
+		home = $('<h1 />')
+			.attr( 'id', 'persistent-home-link' )
+			.html('<a href="/">wpGrafie</a>');
+
+	persHeader.append(home).append( nav.clone().attr( 'id', 'pers-page-navigation') );
+
+	$(window).on('scroll', function() {
+		if ( $(window).width() < 700 ) {
+			persHeader.hide();
+			return;
+		}
+
+		var scrollTop = $(window).scrollTop();
+
+		if ( scrollTop > navOffsetTop ) {
+			persHeader.show();
+		} else {
+			persHeader.hide();
+		}
+	} );
 } )( jQuery );
