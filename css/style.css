@@ -2470,6 +2470,10 @@ img {
   }
 }
 @media (max-width: 480px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
   #content-collapse {
     top: 7.5rem;
   }

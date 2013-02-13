@@ -129,6 +129,10 @@ img {
 }
 
 @media (max-width: 480px) {
+	body {
+		-webkit-text-size-adjust: none;
+	}
+
 	#content-collapse {
 		top: rem( 120px );
 	}
