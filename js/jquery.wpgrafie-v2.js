@@ -110,7 +110,7 @@ var _gaq = _gaq || [];
 		navOffsetTop = nav.offset().top,
 		home = $('<h1 />')
 			.attr( 'id', 'persistent-home-link' )
-			.html('<a href="/">wpGrafie</a>');
+			.html('<a href="/">wpGrafie.de</a>');
 
 	persHeader.append(home).append( nav.clone().attr( 'id', 'pers-page-navigation') );
 
