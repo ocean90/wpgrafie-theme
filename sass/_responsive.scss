@@ -36,11 +36,14 @@ img {
 	#index-last-posts,
 	#schnipsel-posts,
 	#related-posts-row .span9,
-	#article-footer .span9 {
+	#article-footer .span9,
+	#plugins-page .span8,
+	#plugins-page .span4 {
 		width: 100%;
 	}
 
-	#article-sidebar {
+	#article-sidebar,
+	#plugins-page .span4 {
 		margin: 0;
 	}
 
