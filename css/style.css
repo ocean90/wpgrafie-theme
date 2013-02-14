@@ -191,85 +191,15 @@ a:hover {
  */
 .width-960 {
   margin: 0 auto;
-  padding: 0 0.625em;
-  max-width: 61.25em;
+  padding: 0 0.625rem;
+  max-width: 61.25rem;
   clear: both;
 }
 
-/*.row {
-	width: 100%;
-	clear: both;
-}
-
-.row:before, .row:after {
-	display: table;
-	content: "";
-}
-
-.row:after {
-	clear: both;
-}
-
-.row > [class*="span"] {
-	float: left;
-	margin-left: 2.127659574%;
-}
-
-.row > [class*="span"]:first-child {
-	margin-left: 0;
-}
-
-.row > .span1 {
-	width: 6.382978723%;
-}
-
-.row > .span2 {
-	width: 14.89361702%;
-}
-
-.row > .span3 {
-	width: 23.404255317%;
-}
-
-.row > .span4 {
-	width: 31.914893614%;
-}
-
-.row > .span5 {
-	width: 40.425531911%;
-}
-
-.row > .span6 {
-	width: 48.93617020799999%;
-}
-
-.row > .span7 {
-	width: 57.446808505%;
-}
-
-.row > .span8 {
-	width: 65.95744680199999%;
-}
-
-.row > .span9 {
-	width: 74.468085099%;
-}
-
-.row > .span10 {
-	width: 82.97872339599999%;
-}
-
-.row > .span11 {
-	width: 91.489361693%;
-}
-
-.row > .span12 {
-	width: 99.99999998999999%;
-}
-
-.row > .spanempty {
-	padding-top: 1px;
-}*/
+/**
+ * Part of Twitter Bootstrap
+ * http://twitter.github.com/bootstrap/scaffolding.html#gridSystem
+ */
 .row {
   width: 100%;
 }
@@ -1942,7 +1872,7 @@ blockquote cite {
 }
 
 .comment .children {
-  margin-top: 1.25em;
+  margin-top: em(20px);
 }
 
 .comment.depth-2 {
