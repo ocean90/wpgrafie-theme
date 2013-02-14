@@ -71,8 +71,8 @@ img {
 
 @media (max-width: 600px) {
 	#logo {
-		width: rem(400px);
-		height: rem(70px);
+		width: rem( 500px );
+		height: rem( 91px );
 	}
 
 	#search {
@@ -86,6 +86,11 @@ img {
 }
 
 @media (max-width: 550px) {
+	#logo {
+		width: rem( 450px );
+		height: rem( 82px );
+	}
+
 	#page-navigation {
 		margin: 0;
 		float: left;
@@ -141,6 +146,8 @@ img {
 
 	#logo {
 		margin-top: rem( 20px );
+		width: rem( 350px );
+		height: rem( 64px );
 	}
 
 	.span6.list-post-small {

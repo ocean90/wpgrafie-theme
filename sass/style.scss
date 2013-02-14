@@ -20,7 +20,7 @@
  * Body
  */
 body {
-	background: #132945 url( '../img/bg.png') repeat top center;
+	background: #132945 url( '../img/bg.png') top center repeat fixed;
 }
 
 /**
@@ -113,6 +113,7 @@ a:hover {
 		rgba(0, 0, 0, 0.8)
 	);
 	background: $white-color;
+	background: rgba( 242, 243, 242, .9);
 	width: 100%;
 	position: fixed;
 	z-index: 10;
@@ -152,18 +153,11 @@ a:hover {
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	height: rem( 92px );
-	width: rem( 489px );
+	height: rem( 105px );
+	width: rem( 575px );
 	background-size: 100%;
 	margin: rem( 40px 0 0 20px );
 	display: inline-block;
-}
-
-@media only screen and ( -webkit-min-device-pixel-ratio: 1.5 ) {
-	#logo {
-		height: rem( 46px );
-		width: rem( 244px );
-	}
 }
 
 /**

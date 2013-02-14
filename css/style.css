@@ -117,7 +117,7 @@ img {
  * Body
  */
 body {
-  background: #132945 url("../img/bg.png") repeat top center;
+  background: #132945 url("../img/bg.png") top center repeat fixed;
 }
 
 /**
@@ -497,6 +497,7 @@ a:hover {
   -moz-box-shadow:  0 0.3125rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.8);
   box-shadow:  0 0.3125rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.8);
   background: #f2f3f2;
+  background: rgba(242, 243, 242, 0.9);
   width: 100%;
   position: fixed;
   z-index: 10;
@@ -536,19 +537,13 @@ a:hover {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  height: 5.75rem;
-  width: 30.5625rem;
+  height: 6.5625rem;
+  width: 35.9375rem;
   background-size: 100%;
   margin:  2.5rem 0 0 1.25rem;
   display: inline-block;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
-  #logo {
-    height: 2.875rem;
-    width: 15.25rem;
-  }
-}
 /**
  * Page Navigation
  */
@@ -2422,8 +2417,8 @@ img {
 }
 @media (max-width: 600px) {
   #logo {
-    width: 25rem;
-    height: 4.375rem;
+    width: 31.25rem;
+    height: 5.6875rem;
   }
 
   #search {
@@ -2436,6 +2431,11 @@ img {
   }
 }
 @media (max-width: 550px) {
+  #logo {
+    width: 28.125rem;
+    height: 5.125rem;
+  }
+
   #page-navigation {
     margin: 0;
     float: left;
@@ -2490,6 +2490,8 @@ img {
 
   #logo {
     margin-top: 1.25rem;
+    width: 21.875rem;
+    height: 4rem;
   }
 
   .span6.list-post-small {
