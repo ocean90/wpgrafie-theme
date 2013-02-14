@@ -6,7 +6,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,su
 input[type='search']{-webkit-appearance:textfield;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 input[type='search']::-webkit-search-decoration{-webkit-appearance:none}input[type='submit']{-webkit-appearance:none}
 .clearfix{overflow:hidden;*zoom:1}a,a:hover,a:active,a:focus{outline:0;text-decoration:none}img{border:0;-ms-interpolation-mode:bicubic}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
-body{background:#132945 url("../img/bg.png") top center repeat fixed}body,input,textarea{font-family:Bitter,sans-serif;font-size:1rem;line-height:1.6;color:#444;text-shadow:.0625rem .0625rem 0 white}
+body{background:#132945 url("../img/grid.png") top center repeat fixed;background-size:50px 50px}body,input,textarea{font-family:Bitter,sans-serif;font-size:1rem;line-height:1.6;color:#444;text-shadow:.0625rem .0625rem 0 white}
 [class^="icon-"],[class*=" icon-"]{font-family:'wpGrafie';font-style:normal}
 .icon:before,#reply-title:before{font-family:'wpGrafie';content:attr(data-icon)}pre,code{font-family:Menlo,Monaco,"Courier New",monospace;text-shadow:none}
 ::selection{background:#444;color:#f2f3f2;text-shadow:none}::-moz-selection{background:#444;color:#f2f3f2;text-shadow:none}a{color:#548bd0;padding-bottom:.125rem;border-bottom:1px solid #c4c4c4;-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;-o-transition:all .2s ease-out;transition:all .2s ease-out}
