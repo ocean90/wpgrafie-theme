@@ -20,7 +20,7 @@
  * Body
  */
 body {
-	background: #132945 url( '../img/grid.png') top center repeat fixed;
+	background: #132945 url( '../images/grid.png') top center repeat fixed;
 	background-size: 50px 50px;
 }
 
@@ -92,16 +92,18 @@ a:hover {
 /**
  * Collapsing Header Effect
  */
+$header-height: 200px;
+
 #header-collapse {
 	width: 100%;
 	position: fixed;
-	height: rem( 200px );
+	height: rem( $header-height );
 }
 
 #content-collapse {
 	width: 100%;
 	position: relative;
-	top: rem( 200px );
+	top: rem( $header-height );
 	z-index: 5;
 }
 
@@ -145,13 +147,13 @@ a:hover {
  * Header
  */
 #banner {
-	height: rem( 200px );
-	background: transparent url( '../img/wplogo.png' ) no-repeat 90% 100%;
+	height: rem( $header-height );
+	background: transparent url( '../images/wplogo.png' ) no-repeat 90% 100%;
 	background-size: 250px 180px;
 }
 
 #logo {
-	background: transparent url( '../img/logo.png' ) no-repeat;
+	background: transparent url( '../images/logo.png' ) no-repeat;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
@@ -282,7 +284,8 @@ a#pull-navi:after {
  * Index
  */
 #about-me {
-	padding: rem( 20px 0 );
+	text-align: center;
+	padding: rem( 50px 0 );
 	color: darken( $grey-color, 20% );
 }
 
@@ -296,6 +299,7 @@ a#pull-navi:after {
 
 #about-me .third {
 	margin-top: rem( 30px );
+	font-style: italic;
 }
 
 #about-me .word {
@@ -304,10 +308,6 @@ a#pull-navi:after {
 
 #about-me .press {
 	color: #464646
-}
-
-#about-me .about-text {
-	margin-top: rem( 70px );
 }
 
 .section-title {
@@ -962,7 +962,7 @@ blockquote cite {
 .twitter {
 	background: #49a4d3;
 	@include background(
-		url( '../img/social-t.png' ),
+		url( '../images/social-t.png' ),
 		linear-gradient(
 			top,
 			#8accef 0%,
@@ -976,7 +976,7 @@ blockquote cite {
 .facebook {
 	background: #677caa;
 	@include background(
-		url( '../img/social-fb.png' ),
+		url( '../images/social-fb.png' ),
 		linear-gradient(
 			top,
 			#5c75a9 0%,
@@ -994,7 +994,7 @@ blockquote cite {
 .googleplus {
 	background: #d2432a;
 	@include background(
-		url( '../img/social-gp.png' ),
+		url( '../images/social-gp.png' ),
 		linear-gradient(
 			top,
 			#eb6f44 0%,
@@ -1095,7 +1095,7 @@ blockquote cite {
 .uberspace {
 	background: #292929;
 	@include background(
-		url( '../img/thanks-uberspace.png' ),
+		url( '../images/thanks-uberspace.png' ),
 		linear-gradient(
 			top,
 			#bbb 0%,
@@ -1117,7 +1117,7 @@ blockquote cite {
 .paypal {
 	background: #677caa;
 	@include background(
-		url( '../img/thanks-paypal.png' ),
+		url( '../images/thanks-paypal.png' ),
 		linear-gradient(
 			top,
 			#4382c0 0%,
@@ -1131,7 +1131,7 @@ blockquote cite {
 .amazon {
 	background: #d2432a;
 	@include background(
-		url( '../img/thanks-amazon.png' ),
+		url( '../images/thanks-amazon.png' ),
 		linear-gradient(
 			top,
 			#ffcf56 0%,
@@ -1145,7 +1145,7 @@ blockquote cite {
 .flattr {
 	background: #d2432a;
 	@include background(
-		url( '../img/thanks-flattr.png' ),
+		url( '../images/thanks-flattr.png' ),
 		linear-gradient(
 			top,
 			#91bc5d 0%,

@@ -2,14 +2,9 @@
 get_header();
 ?>
 <div id="about-me" class="row">
-	<div class="span6 about-text">
-		<p class="first">WordPress Contributing Developer,</p>
+		<p class="first">Hey, ich bin Dominik – <span class="word">Word</span><span class="press">Press</span> Contributing Developer,</p>
 		<p class="second">(Web) Developer und ein bisschen mehr.</p>
-		<p class="third">Mein Name ist Dominik, ich liebe <span class="word">Word</span><span class="press">Press</span><br/> und teile gerne mein Wissen darüber.</p>
-	</div>
-	<div class="span6">
-		<img width="460" height="345" src="<?php echo get_stylesheet_directory_uri() ?>/img/about.png" alt="" />
-	</div>
+		<p class="third">WordPress ist meine Leidenschaft. Hier beschreibe ich die Kunst und Technik von WordPress.</p>
 </div>
 
 <div class="row">

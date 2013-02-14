@@ -117,7 +117,7 @@ img {
  * Body
  */
 body {
-  background: #132945 url("../img/grid.png") top center repeat fixed;
+  background: #132945 url("../images/grid.png") top center repeat fixed;
   background-size: 50px 50px;
 }
 
@@ -530,12 +530,12 @@ a:hover {
  */
 #banner {
   height: 12.5rem;
-  background: transparent url("../img/wplogo.png") no-repeat 90% 100%;
+  background: transparent url("../images/wplogo.png") no-repeat 90% 100%;
   background-size: 250px 180px;
 }
 
 #logo {
-  background: transparent url("../img/logo.png") no-repeat;
+  background: transparent url("../images/logo.png") no-repeat;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -663,7 +663,8 @@ a#pull-navi:after {
  * Index
  */
 #about-me {
-  padding:  1.25rem 0;
+  text-align: center;
+  padding:  3.125rem 0;
   color: #111111;
 }
 
@@ -677,6 +678,7 @@ a#pull-navi:after {
 
 #about-me .third {
   margin-top: 1.875rem;
+  font-style: italic;
 }
 
 #about-me .word {
@@ -685,10 +687,6 @@ a#pull-navi:after {
 
 #about-me .press {
   color: #464646;
-}
-
-#about-me .about-text {
-  margin-top: 4.375rem;
 }
 
 .section-title {
@@ -1689,33 +1687,33 @@ blockquote cite {
 
 .twitter {
   background: #49a4d3;
-  background: url("../img/social-t.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8accef), color-stop(100%, #49a4d3));
-  background: url("../img/social-t.png"), -webkit-linear-gradient(top, #8accef 0%, #49a4d3 100%);
-  background: url("../img/social-t.png"), -moz-linear-gradient(top, #8accef 0%, #49a4d3 100%);
-  background: url("../img/social-t.png"), -o-linear-gradient(top, #8accef 0%, #49a4d3 100%);
-  background: url("../img/social-t.png"), linear-gradient(top, #8accef 0%, #49a4d3 100%);
+  background: url("../images/social-t.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8accef), color-stop(100%, #49a4d3));
+  background: url("../images/social-t.png"), -webkit-linear-gradient(top, #8accef 0%, #49a4d3 100%);
+  background: url("../images/social-t.png"), -moz-linear-gradient(top, #8accef 0%, #49a4d3 100%);
+  background: url("../images/social-t.png"), -o-linear-gradient(top, #8accef 0%, #49a4d3 100%);
+  background: url("../images/social-t.png"), linear-gradient(top, #8accef 0%, #49a4d3 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
 
 .facebook {
   background: #677caa;
-  background: url("../img/social-fb.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5c75a9), color-stop(75%, #2b4d85), color-stop(76%, #6b83b8), color-stop(77%, #6b83b8), color-stop(78%, #667caa), color-stop(100%, #677caa));
-  background: url("../img/social-fb.png"), -webkit-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
-  background: url("../img/social-fb.png"), -moz-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
-  background: url("../img/social-fb.png"), -o-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
-  background: url("../img/social-fb.png"), linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
+  background: url("../images/social-fb.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5c75a9), color-stop(75%, #2b4d85), color-stop(76%, #6b83b8), color-stop(77%, #6b83b8), color-stop(78%, #667caa), color-stop(100%, #677caa));
+  background: url("../images/social-fb.png"), -webkit-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
+  background: url("../images/social-fb.png"), -moz-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
+  background: url("../images/social-fb.png"), -o-linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
+  background: url("../images/social-fb.png"), linear-gradient(top, #5c75a9 0%, #2b4d85 75%, #6b83b8 76%, #6b83b8 77%, #667caa 78%, #677caa 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
 
 .googleplus {
   background: #d2432a;
-  background: url("../img/social-gp.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eb6f44), color-stop(100%, #d2432a));
-  background: url("../img/social-gp.png"), -webkit-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
-  background: url("../img/social-gp.png"), -moz-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
-  background: url("../img/social-gp.png"), -o-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
-  background: url("../img/social-gp.png"), linear-gradient(top, #eb6f44 0%, #d2432a 100%);
+  background: url("../images/social-gp.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eb6f44), color-stop(100%, #d2432a));
+  background: url("../images/social-gp.png"), -webkit-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
+  background: url("../images/social-gp.png"), -moz-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
+  background: url("../images/social-gp.png"), -o-linear-gradient(top, #eb6f44 0%, #d2432a 100%);
+  background: url("../images/social-gp.png"), linear-gradient(top, #eb6f44 0%, #d2432a 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
@@ -1806,11 +1804,11 @@ blockquote cite {
 
 .uberspace {
   background: #292929;
-  background: url("../img/thanks-uberspace.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bbbbbb), color-stop(100%, #292929));
-  background: url("../img/thanks-uberspace.png"), -webkit-linear-gradient(top, #bbbbbb 0%, #292929 100%);
-  background: url("../img/thanks-uberspace.png"), -moz-linear-gradient(top, #bbbbbb 0%, #292929 100%);
-  background: url("../img/thanks-uberspace.png"), -o-linear-gradient(top, #bbbbbb 0%, #292929 100%);
-  background: url("../img/thanks-uberspace.png"), linear-gradient(top, #bbbbbb 0%, #292929 100%);
+  background: url("../images/thanks-uberspace.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bbbbbb), color-stop(100%, #292929));
+  background: url("../images/thanks-uberspace.png"), -webkit-linear-gradient(top, #bbbbbb 0%, #292929 100%);
+  background: url("../images/thanks-uberspace.png"), -moz-linear-gradient(top, #bbbbbb 0%, #292929 100%);
+  background: url("../images/thanks-uberspace.png"), -o-linear-gradient(top, #bbbbbb 0%, #292929 100%);
+  background: url("../images/thanks-uberspace.png"), linear-gradient(top, #bbbbbb 0%, #292929 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
@@ -1825,33 +1823,33 @@ blockquote cite {
 
 .paypal {
   background: #677caa;
-  background: url("../img/thanks-paypal.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4382c0), color-stop(100%, #003366));
-  background: url("../img/thanks-paypal.png"), -webkit-linear-gradient(top, #4382c0 0%, #003366 100%);
-  background: url("../img/thanks-paypal.png"), -moz-linear-gradient(top, #4382c0 0%, #003366 100%);
-  background: url("../img/thanks-paypal.png"), -o-linear-gradient(top, #4382c0 0%, #003366 100%);
-  background: url("../img/thanks-paypal.png"), linear-gradient(top, #4382c0 0%, #003366 100%);
+  background: url("../images/thanks-paypal.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4382c0), color-stop(100%, #003366));
+  background: url("../images/thanks-paypal.png"), -webkit-linear-gradient(top, #4382c0 0%, #003366 100%);
+  background: url("../images/thanks-paypal.png"), -moz-linear-gradient(top, #4382c0 0%, #003366 100%);
+  background: url("../images/thanks-paypal.png"), -o-linear-gradient(top, #4382c0 0%, #003366 100%);
+  background: url("../images/thanks-paypal.png"), linear-gradient(top, #4382c0 0%, #003366 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
 
 .amazon {
   background: #d2432a;
-  background: url("../img/thanks-amazon.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffcf56), color-stop(100%, #e6a400));
-  background: url("../img/thanks-amazon.png"), -webkit-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
-  background: url("../img/thanks-amazon.png"), -moz-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
-  background: url("../img/thanks-amazon.png"), -o-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
-  background: url("../img/thanks-amazon.png"), linear-gradient(top, #ffcf56 0%, #e6a400 100%);
+  background: url("../images/thanks-amazon.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffcf56), color-stop(100%, #e6a400));
+  background: url("../images/thanks-amazon.png"), -webkit-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
+  background: url("../images/thanks-amazon.png"), -moz-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
+  background: url("../images/thanks-amazon.png"), -o-linear-gradient(top, #ffcf56 0%, #e6a400 100%);
+  background: url("../images/thanks-amazon.png"), linear-gradient(top, #ffcf56 0%, #e6a400 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }
 
 .flattr {
   background: #d2432a;
-  background: url("../img/thanks-flattr.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #91bc5d), color-stop(100%, #86ac57));
-  background: url("../img/thanks-flattr.png"), -webkit-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
-  background: url("../img/thanks-flattr.png"), -moz-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
-  background: url("../img/thanks-flattr.png"), -o-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
-  background: url("../img/thanks-flattr.png"), linear-gradient(top, #91bc5d 0%, #86ac57 100%);
+  background: url("../images/thanks-flattr.png"), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #91bc5d), color-stop(100%, #86ac57));
+  background: url("../images/thanks-flattr.png"), -webkit-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
+  background: url("../images/thanks-flattr.png"), -moz-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
+  background: url("../images/thanks-flattr.png"), -o-linear-gradient(top, #91bc5d 0%, #86ac57 100%);
+  background: url("../images/thanks-flattr.png"), linear-gradient(top, #91bc5d 0%, #86ac57 100%);
   background-repeat: no-repeat;
   background-position: right bottom, left top;
 }

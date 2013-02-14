@@ -3,7 +3,7 @@
 $recoms = array(
 	array(
 		'title' => 'WordPress SEO ist die Kernkompetenz von wpSEO, dem zugkräftigen Plugin für die Suchmaschinenoptimierung unter WordPress.',
-		'image' => get_stylesheet_directory_uri() . '/img/empfehlungen/wpseo.png',
+		'image' => get_stylesheet_directory_uri() . '/images/empfehlungen/wpseo.png',
 		'link'  => 'http://wpseo.de',
 		'height' => 118,
 		'width' => 306
