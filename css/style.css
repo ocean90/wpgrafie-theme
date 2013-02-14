@@ -1535,6 +1535,8 @@ blockquote cite {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
+  height: 50px;
+  width: 50px;
 }
 
 #author-box h5 {

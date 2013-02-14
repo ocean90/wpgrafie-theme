@@ -809,6 +809,8 @@ blockquote cite {
 		lighten($grey-color, 40%)
 	);
 	@include box-sizing( content-box );
+	height: 50px;
+	width: 50px;
 }
 
 #author-box h5 {

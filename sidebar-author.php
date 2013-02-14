@@ -1,7 +1,7 @@
 		<div class="row" id="author-box">
 			<h2 class="section-title"><span>Der Autor</span></h2>
 			<?php
-			$avatar		= get_avatar( get_the_author_meta( 'ID' ) , 50 );
+			$avatar		= get_avatar( get_the_author_meta( 'ID' ) , 100 );
 			$name		= get_the_author_meta( 'display_name' );
 			$desc		= get_the_author_meta( 'user_description' );
 			$social		= array();
