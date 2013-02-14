@@ -26,7 +26,7 @@ function ds_the_date( $d ) {
 ?>
 <div class="row big-image" id="archive-top-img">
 	<div class="vignette"></div>
-	<img width="960" height="192" src="<?php echo get_stylesheet_directory_uri() ?>/img/banner/archiv.png" />
+	<img width="960" height="192" src="<?php echo get_stylesheet_directory_uri() ?>/images/banner/archiv.png" />
 </div>
 <div class="row top-desc" id="schnipsel-top-desc">
 	<p>Alle Artikel und Codeschnipsel nach Jahr und Monat aufgelistet. Viel Spaß beim Stöbern!</p>

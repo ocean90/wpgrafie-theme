@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="row big-image" id="schnipsel-top-img">
 	<div class="vignette"></div>
-	<img width="960" height="192" src="<?php echo get_stylesheet_directory_uri() ?>/img/banner/schnipsel.png" />
+	<img width="960" height="192" src="<?php echo get_stylesheet_directory_uri() ?>/images/banner/schnipsel.png" />
 </div>
 <div class="row top-desc" id="schnipsel-top-desc">
 	<p>Verschiedene Codeschnipsel für WordPress. Sei es eine Erweiterung für das Backend oder für das eigene Theme.<br/> Schnipsel vom Profi mit Sinn und Verstand.</p>
