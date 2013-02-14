@@ -25,7 +25,7 @@ a:hover{border-bottom-color:#548bd0}.no-link-style{color:#444;border:0}.no-link-
 [class*="span"].pull-right,.row [class*="span"].pull-right{float:right}#header-collapse{width:100%;position:fixed;height:12.5rem}
 #content-collapse{width:100%;position:relative;top:12.5rem;z-index:5}#header-persistent{-webkit-box-shadow:0 .3125rem .625rem -0.3125rem rgba(0,0,0,0.8);-moz-box-shadow:0 .3125rem .625rem -0.3125rem rgba(0,0,0,0.8);box-shadow:0 .3125rem .625rem -0.3125rem rgba(0,0,0,0.8);background:#f2f3f2;background:rgba(242,243,242,0.9);width:100%;position:fixed;z-index:10}
 #header-persistent>div{display:none}#persistent-home-link{float:left;font-size:.9375rem;font-weight:700;padding-top:.125rem}#persistent-home-link a{color:#444;border:0}
-#pers-page-navigation{clear:none;padding:0}#banner{height:12.5rem;background:transparent url("../img/wplogo.png") no-repeat 90% 100%}
+#pers-page-navigation{clear:none;padding:0}#banner{height:12.5rem;background:transparent url("../img/wplogo.png") no-repeat 90% 100%;background-size:250px 180px}
 #logo{background:transparent url("../img/logo.png") no-repeat;text-indent:100%;white-space:nowrap;overflow:hidden;height:6.5625rem;width:35.9375rem;background-size:100%;margin:2.5rem 0 0 1.25rem;display:inline-block}
 .page-navigation ul{float:right;position:relative;font-size:.9375rem}.page-navigation li{display:inline;float:left;margin:0 1.25rem 0 0}.page-navigation a{-webkit-transition:none;-moz-transition:none;-o-transition:none;transition:none;display:inline-block;padding-top:.3125rem}
 .page-navigation li:last-child{margin:0}.page-navigation a:hover,.page-navigation a:focus,.page-navigation .current-menu-item a{border-top:.3125rem solid #132945;padding-top:0}

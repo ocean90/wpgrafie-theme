@@ -531,6 +531,7 @@ a:hover {
 #banner {
   height: 12.5rem;
   background: transparent url("../img/wplogo.png") no-repeat 90% 100%;
+  background-size: 250px 180px;
 }
 
 #logo {
