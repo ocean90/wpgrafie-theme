@@ -1550,10 +1550,6 @@ li.archive-month {
 	position: relative;
 }
 
-#footer > div {
-	background: transparent url( '../img/asteroid.png' ) no-repeat right bottom;
-}
-
 // http://www.webkrauts.de/2007/06/03/headline-elemente-mit-css-stylen/
 #footer .section-title {
 	@include background(
@@ -1622,31 +1618,9 @@ li.archive-month {
 	margin-top: rem( 20px );
 	color: #111;
 	font-size: rem( 11px );
-	background: #b81b21;
 	display: inline-block;
 	float: right;
 	padding: rem( 3px 6px );
-	position: relative;
-	z-index: 2;
-	@include box-shadow(
-		rem( -2px -2px 0 )
-		rgba(0,0,0,0.1)
-	);
-}
-
-#imprint:after {
-	content: '';
-	position: absolute;
-	top: rem( -14px );
-	right: 0;
-	z-index: -1;
-	border: rem( 7px ) solid #b81b21;
-	border-top: rem( 7px ) solid transparent;
-	border-right: rem( 7px ) solid transparent;
-	@include box-shadow(
-		rem( -2px 2px 0 )
-		rgba(0,0,0,0.1)
-	);
 }
 
 #imprint a {
