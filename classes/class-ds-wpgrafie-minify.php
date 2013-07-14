@@ -122,7 +122,7 @@ class DS_wpGrafie_Minify extends DS_wpGrafie_Theme {
 			//	'<script async',
 				'',
 				'\\1',
-				'<base href="' . home_url( '/' ) . '">'
+				'<base href="' . home_url() . '">'
 			),
 			$data
 		);
