@@ -108,8 +108,7 @@ class DS_wpGrafie_Minify extends DS_wpGrafie_Theme {
 				'/\>\s+\</s',
 			//	'/<script/',
 				"/ type=(\'|\")text\/javascript(\'|\")/",
-				'/((src|href)=(\'|\"))https?:\/\/wpgrafie.de/',
-				'/<base>/'
+				'/((src|href)=(\'|\"))https?' . str_replace( '/', '\/', str_replace( 'http', '', home_url( '', 'http' ) ) ) . '/'
 			),
 			array(
 				'',
@@ -121,8 +120,7 @@ class DS_wpGrafie_Minify extends DS_wpGrafie_Theme {
 				'><',
 			//	'<script async',
 				'',
-				'\\1',
-				'<base href="' . home_url() . '">'
+				'\\1'
 			),
 			$data
 		);

@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="alternate" href="<?php echo home_url( '/feed/' ); ?>" type="application/rss+xml" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<base>
+	<base href="<?php echo str_replace( 'http:', '', home_url( '/', 'http' ) ); ?>">
 	<?php wp_head(); ?>
 
 	<!--[if lt IE 9]>

@@ -59,10 +59,9 @@ class DS_wpGrafie_Theme_Script_Styles extends DS_wpGrafie_Theme {
 	public static function init_styles() {
 		$dev = self::$dev ? '' : '.min';
 
-		$protocol = is_ssl() ? 'https' : 'http';
 		wp_register_style(
 			self::$themeslug . '-webfont',
-			$protocol . '://fonts.googleapis.com/css?family=Bitter:400,700,400italic',
+			'//fonts.googleapis.com/css?family=Bitter:400,700,400italic',
 			false,
 			'1.0'
 		);
