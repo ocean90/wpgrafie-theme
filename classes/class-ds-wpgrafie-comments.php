@@ -38,7 +38,7 @@ class DS_wpGrafie_Comments extends DS_wpGrafie_Theme {
 							<?php
 							printf(
 								'<span class="author-name">%s %s</span>',
-								get_avatar( $comment, 64, get_bloginfo('template_url').'/img/default_avatar.png' ),
+								get_avatar( $comment, 64, get_template_directory_uri() . '/images/default_avatar.png' ),
 								get_comment_author_link()
 							);
 
